@@ -1,4 +1,4 @@
-package com.example.demo.Instructor;
+package _4352_4421_4480.springbootproject.Instructor;
 
 public class Instructor {
     private  Long id;
