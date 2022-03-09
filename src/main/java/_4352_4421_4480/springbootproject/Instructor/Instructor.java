@@ -1,6 +1,20 @@
 package _4352_4421_4480.springbootproject.Instructor;
 
+import javax.persistence.*;
+
+@Entity
+@Table
 public class Instructor {
+    @Id
+    @SequenceGenerator(
+            name = "instructor_sequence",
+            sequenceName = "instructor_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "instructor_sequence"
+    )
     private  Long id;
     private String name;
     private Integer age;
