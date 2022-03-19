@@ -3,19 +3,15 @@ package _4352_4421_4480.springbootproject.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.ui.Model;
-import org.springframework.web.servlet.ModelAndView;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
-//@RestController
+@RestController
 @RequestMapping(path = "api/v1/course")
-@Controller
+//@Controller
+
 public class CourseController {
-
-    @Autowired
-    private CourseRepository eRepo;
-
     private final CourseService courseService;
 
     @Autowired
@@ -23,12 +19,36 @@ public class CourseController {
         this.courseService = courseService;
     }
 
+
     @GetMapping
     public List<Course> getCourse() {
         return courseService.getCourse();
     }
 
-    @GetMapping({"/showCourses", "/", "/list"})
+    @PostMapping
+    public void addCourse(@RequestBody Course course)
+    {
+        courseService.addNewCourse(course);
+    }
+
+    @DeleteMapping(path = "{courseId}")
+    public void deleteCourse(@PathVariable("courseId") Long courseId)
+    {
+        courseService.deleteCourse(courseId);
+    }
+
+    @PutMapping(path = "{courseId}")
+    public void updateCourse(
+            @PathVariable("courseId") Long courseId,
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String syllabus,
+            @RequestParam(required = false) Integer year,
+            @RequestParam(required = false) Integer semester)
+    {
+        courseService.updateCourse(courseId, name, syllabus, year, semester);
+    }
+
+    /* @GetMapping({"/showCourses", "/", "/list"})
     public ModelAndView showCourses(Model model) {
         ModelAndView mav = new ModelAndView("list-courses");
         List<Course> listOfCourses = eRepo.findAll();
@@ -48,5 +68,5 @@ public class CourseController {
     public String addCourse(@ModelAttribute Course course) {
         eRepo.save(course);
         return "redirect:/list";
-    }
+    }*/
 }

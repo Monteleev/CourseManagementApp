@@ -5,9 +5,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
-
 @Configuration
 public class CourseConfig {
+
 
     @Bean
     CommandLineRunner commandLineRunner
@@ -16,11 +16,10 @@ public class CourseConfig {
         return args ->
         {
             Course SoftwareEng = new Course(
-                    "SoftwareEng"
+                    1L,"SoftwareEng","llabusSYY",4,8
             );
-
             Course SoftwareDevel = new Course(
-                    "SoftwareDevel"
+                    2L,"SoftwareDevel","Syllabuuus",2,3
             );
 
             repository.saveAll(
