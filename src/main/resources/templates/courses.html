@@ -47,6 +47,7 @@
                 <tr>
                     <th>Course ID</th>
                     <th>Course Name</th>
+                    <th>Course Syllabus</th>
                     <th>Course Year</th>
                     <th>Course Semester</th>
                     <th> Actions </th>
@@ -56,6 +57,7 @@
                 <tr th:each="course: ${courses}">
                     <td th:text = "${course.id}"></td>
                     <td th:text = "${course.name}"></td>
+                    <p class = "text-break"><td th:text = "${course.syllabus}"></td></p>
                     <td th:text = "${course.year}"></td>
                     <td th:text = "${course.semester}"></td>
 

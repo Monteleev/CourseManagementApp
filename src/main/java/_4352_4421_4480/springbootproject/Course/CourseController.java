@@ -33,7 +33,7 @@ public class CourseController {
     }
 
     @PostMapping("/courses")
-    public String saveStudent(@ModelAttribute("course") Course course) {
+    public String saveCourse(@ModelAttribute("course") Course course) {
         courseService.addNewCourse(course);
         return "redirect:/courses";
     }
@@ -60,6 +60,7 @@ public class CourseController {
         Course existingCourse = courseService.getCourseById(id);
         existingCourse.setId(id);
         existingCourse.setName(course.getName());
+        existingCourse.setSyllabus(course.getSyllabus());
         existingCourse.setYear(course.getYear());
         existingCourse.setSemester(course.getSemester());
 
