@@ -1,7 +1,5 @@
 package _4352_4421_4480.springbootproject.Course;
 
-import org.hibernate.procedure.spi.ParameterRegistrationImplementor;
-
 import javax.persistence.*;
 
 @Entity
