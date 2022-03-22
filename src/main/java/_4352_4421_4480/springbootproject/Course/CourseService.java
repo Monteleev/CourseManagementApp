@@ -30,48 +30,23 @@ public class CourseService {
                 courseRepository.findById(course.getId());
         if(courseOptional.isPresent())
         {
-            throw new IllegalStateException("Id Taken");
+            throw new IllegalStateException("Id Taken. Try again!");
         }
 
         courseRepository.save(course);
-        System.out.println(course);
     }
 
-    public void deleteCourse(Long courseId) {
-        boolean cId = courseRepository.existsById(courseId);
-        if(!cId)
-        {
-            throw new IllegalStateException("Course with id " + courseId + " does not exist!");
-        }
-
-        courseRepository.deleteById((courseId));
+    public void deleteCourseById(Long id) {
+        courseRepository.deleteById(id);
     }
 
-    @Transactional
-    public void updateCourse(Long courseId, String name, String syllabus, Integer year, Integer semester)
+    public Course getCourseById(Long id)
     {
-        Course course = courseRepository.findById(courseId)
-                .orElseThrow(()->new IllegalStateException(
-                        "Course with id " + courseId + " does not exist!"));
+        return courseRepository.findById(id).get();
+    }
 
-        if(name != null && name.length() >0)
-        {
-            course.setName(name);
-        }
-
-        if(syllabus != null && syllabus.length() >0)
-        {
-            course.setSyllabus(syllabus);
-        }
-
-        if(year != null && year <= 5 && year>0)
-        {
-            course.setYear(year);
-        }
-
-        if(semester != null && semester <= 10 && semester>0)
-        {
-            course.setSemester(semester);
-        }
+    public Course updateCourse(Course course)
+    {
+        return courseRepository.save(course);
     }
 }

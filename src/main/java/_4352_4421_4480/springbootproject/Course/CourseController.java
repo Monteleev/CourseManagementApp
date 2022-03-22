@@ -37,22 +37,35 @@ public class CourseController {
         courseService.addNewCourse(course);
         return "redirect:/courses";
     }
-
-    @DeleteMapping(path = "{courseId}")
-    public void deleteCourse(@PathVariable("courseId") Long courseId)
+    @GetMapping("/courses/edit/{id}")
+    public String editCourseForm(@PathVariable Long id, Model model)
     {
-        courseService.deleteCourse(courseId);
+        model.addAttribute("course",courseService.getCourseById(id));
+        return "edit_course";
     }
 
-    @PutMapping(path = "{courseId}")
-    public void updateCourse(
-            @PathVariable("courseId") Long courseId,
-            @RequestParam(required = false) String name,
-            @RequestParam(required = false) String syllabus,
-            @RequestParam(required = false) Integer year,
-            @RequestParam(required = false) Integer semester)
+    @GetMapping("/courses/{id}")
+    public String deleteCourse(@PathVariable Long id)
     {
-        courseService.updateCourse(courseId, name, syllabus, year, semester);
+        courseService.deleteCourseById(id);
+        return "redirect:/courses";
+    }
+
+    @PostMapping("/courses/{id}")
+    public String updateCourse(@PathVariable Long id,
+                                @ModelAttribute("course") Course course,
+                                Model model) {
+
+        // get student from database by id
+        Course existingCourse = courseService.getCourseById(id);
+        existingCourse.setId(id);
+        existingCourse.setName(course.getName());
+        existingCourse.setYear(course.getYear());
+        existingCourse.setSemester(course.getSemester());
+
+
+        courseService.updateCourse(existingCourse);
+        return "redirect:/courses";
     }
 
 }
