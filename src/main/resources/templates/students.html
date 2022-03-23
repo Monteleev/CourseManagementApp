@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://thymeleaf.org"><html lang="en">
+<html xmlns:th="http://thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>List Courses</title>
+    <title>List Students</title>
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -34,43 +34,31 @@
     <br>
     <div class="container">
         <div class = "row">
-            <h2>List Courses</h2>
+            <h2>List Students</h2>
         </div>
-        <div class = "row">
-            <div class = "col-lg-3">
-                <a th:href = "@{/courses/new}" class = "btn btn-primary mb-3">Add Course</a>
-            </div>
-        </div>
+<!--        <div class = "row">-->
+<!--            <div class = "col-lg-3">-->
+<!--                <a th:href = "@{/courses/new}" class = "btn btn-primary mb-3">Add Student</a>-->
+<!--            </div>-->
+<!--        </div>-->
 
         <table class="table table-bordered table-striped">
             <thead class = "table-dark">
-                <tr>
-                    <th>Course ID</th>
-                    <th>Course Name</th>
-                    <th>Course Syllabus</th>
-                    <th>Course Year</th>
-                    <th>Course Semester</th>
-                    <th> Actions </th>
-                </tr>
+            <tr>
+                <th>Student ID</th>
+                <th>Student Name</th>
+                <th> Actions </th>
+            </tr>
             </thead>
             <tbody>
-                <tr th:each="course: ${courses}">
-                    <td th:text = "${course.id}"></td>
-                    <td th:text = "${course.name}"></td>
-                    <p class = "text-break"><td th:text = "${course.syllabus}"></td></p>
-                    <td th:text = "${course.year}"></td>
-                    <td th:text = "${course.semester}"></td>
+            <tr th:each="student: ${students}">
+                <td th:text = "${student.id}"></td>
+                <td th:text = "${student.name}"></td>
+                <td>
 
-                    <td>
 
-                        <a th:href = "@{/courses/edit/{id}(id=${course.id})}"
-                           class = "btn btn-primary">Update</a>
-
-                        <a th:href = "@{/courses/{id}(id=${course.id})}"
-                           class = "btn btn-danger">Delete</a>
-
-                    </td>
-                </tr>
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>
