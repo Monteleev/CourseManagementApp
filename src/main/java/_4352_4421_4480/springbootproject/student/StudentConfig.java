@@ -4,6 +4,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Configuration
@@ -14,8 +15,8 @@ public class StudentConfig {
     {
         return args ->
         {
-            Student student1 = new Student(1, "Baggelis");
-            Student student2 = new Student(2, "Giannis");
+            Student student1 = new Student(1, "Baggelis", 2018);
+            Student student2 = new Student(2, "Giannis", 2019);
             repository.saveAll(List.of(student1, student2));
         };
     }

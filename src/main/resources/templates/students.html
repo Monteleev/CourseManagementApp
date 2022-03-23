@@ -48,6 +48,9 @@
             <tr>
                 <th>Student ID</th>
                 <th>Student Name</th>
+                <th>Year Of Registration</th>
+                <th>Year Of Studies</th>
+                <th>Semester</th>
                 <th> Actions </th>
             </tr>
             </thead>
@@ -55,6 +58,9 @@
             <tr th:each="student: ${students}">
                 <td th:text = "${student.id}"></td>
                 <td th:text = "${student.name}"></td>
+                <td th:text = "${student.yearOfRegistration}"></td>
+                <td th:text = "${student.yearOfStudies}"></td>
+                <td th:text = "${student.semester}"></td>
                 <td>
 
                     <a th:href = "@{/students/edit/{id}(id=${student.id})}"
