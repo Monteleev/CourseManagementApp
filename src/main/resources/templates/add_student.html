@@ -3,7 +3,7 @@
       xmlns:th="http://thymeleaf.org"><html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add Courses</title>
+    <title>Add Students</title>
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -31,60 +31,29 @@
             </ul>
         </div>
     </nav>
-<br>
+    <br>
     <div class="container">
         <div class = "row">
             <div class = "col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-                <h1 class = "text-center"> Create New Course </h1>
+                <h1 class = "text-center"> Add New Student </h1>
                 <div class = "card-body">
-                    <form th:action = "@{/courses}" th:object = "${course}" method = "POST">
+                    <form th:action = "@{/students}" th:object = "${student}" method = "POST">
                         <div class = "form-group">
-                            <label> Course Id</label>
+                            <label> Student Id</label>
                             <input type="text"
                                    name = "id"
                                    th:field = "*{id}"
                                    class = "form-control"
-                                   placeholder="Enter Course Id"/>
+                                   placeholder="Enter Student Id"/>
                         </div>
 
-
                         <div class = "form-group">
-                            <label> Course Name</label>
+                            <label> Student Name</label>
                             <input type="text"
                                    name = "name"
                                    th:field = "*{name}"
                                    class = "form-control"
-                                   placeholder="Enter Course Name"/>
-                        </div>
-
-
-                        <div class = "form-group">
-                            <label> Course Syllabus</label>
-                            <input type="text"
-                                   name = "syllabus"
-                                   th:field = "*{syllabus}"
-                                   class = "form-control"
-                                   placeholder="Enter Course Syllabus"/>
-                        </div>
-
-
-                        <div class = "form-group">
-                            <label> Course Year</label>
-                            <input type="text"
-                                   name = "year"
-                                   th:field = "*{year}"
-                                   class = "form-control"
-                                   placeholder="Enter Course Year"/>
-                        </div>
-
-
-                        <div class = "form-group">
-                            <label> Course Semester</label>
-                            <input type="text"
-                                   name = "semester"
-                                   th:field = "*{semester}"
-                                   class = "form-control"
-                                   placeholder="Enter Course Semester"/>
+                                   placeholder="Enter Student Name"/>
                         </div>
 
                         <div class = "box-footer">
