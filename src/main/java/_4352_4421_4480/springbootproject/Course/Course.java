@@ -1,6 +1,10 @@
 package _4352_4421_4480.springbootproject.Course;
 
+import _4352_4421_4480.springbootproject.student.Student;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table
@@ -12,6 +16,8 @@ public class Course {
     private String syllabus;
     private Integer year;
     private Integer semester;
+    @OneToMany
+    private List<Student> enrolledStudents;
 
     public Course() {
     }
@@ -22,6 +28,7 @@ public class Course {
         this.syllabus = syllabus;
         this.year = year;
         this.semester = semester;
+        enrolledStudents = new ArrayList<>();
     }
 
     public Course(String name) {
@@ -66,6 +73,18 @@ public class Course {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Student> getEnrolledStudents(){
+        return enrolledStudents;
+    }
+
+    public Integer getNumberOfEnrolledStudents(){
+        return enrolledStudents.size();
+    }
+
+    public void enrollStudent(Student student){
+        enrolledStudents.add(student);
     }
 
     @Override

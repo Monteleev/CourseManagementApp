@@ -50,6 +50,7 @@
                     <th>Course Syllabus</th>
                     <th>Course Year</th>
                     <th>Course Semester</th>
+                    <th>Enrolled Students</th>
                     <th> Actions </th>
                 </tr>
             </thead>
@@ -60,7 +61,7 @@
                     <p class = "text-break"><td th:text = "${course.syllabus}"></td></p>
                     <td th:text = "${course.year}"></td>
                     <td th:text = "${course.semester}"></td>
-
+                    <td th:text = "${course.numberOfEnrolledStudents}"></td>
                     <td>
 
                         <a th:href = "@{/courses/edit/{id}(id=${course.id})}"
