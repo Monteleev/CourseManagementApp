@@ -7,16 +7,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table
+@Table(name="course")
 public class Course {
     @Id
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
     private String syllabus;
     private Integer year;
     private Integer semester;
-    @OneToMany
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "enrolled_students",
+                joinColumns = @JoinColumn(name = "course_id"),
+                inverseJoinColumns = @JoinColumn(name = "student_id")
+    )
     private List<Student> enrolledStudents;
 
     public Course() {
