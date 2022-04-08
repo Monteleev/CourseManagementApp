@@ -25,6 +25,20 @@ public class CourseController {
         return "courses";
     }
 
+    @GetMapping("/courses/syllabus/{id}")
+    public String listCoursesSyllabus(@PathVariable Long id,Model model)
+    {
+        model.addAttribute("courses",courseService.getCourseById(id));
+        return "course_syllabus";
+    }
+
+    @GetMapping("/courses/students/{id}")
+    public String listStudents(@PathVariable Long id,Model model)
+    {
+        model.addAttribute("courses",courseService.getCourseById(id));
+        return "course_students";
+    }
+
     @GetMapping("/courses/new")
     public String createCourseForm(Model model)
     {

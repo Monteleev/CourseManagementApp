@@ -93,6 +93,7 @@ public class Course {
         enrolledStudents.add(student);
     }
 
+
     @Override
     public String toString() {
         return "Course{" +
@@ -101,6 +102,7 @@ public class Course {
                 ", syllabus='" + syllabus + '\'' +
                 ", year=" + year +
                 ", semester=" + semester +
+                ", enrolledStudents=" + enrolledStudents +
                 '}';
     }
 }

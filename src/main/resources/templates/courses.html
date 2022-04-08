@@ -58,10 +58,14 @@
                 <tr th:each="course: ${courses}">
                     <td th:text = "${course.id}"></td>
                     <td th:text = "${course.name}"></td>
-                    <p class = "text-break"><td th:text = "${course.syllabus}"></td></p>
+                    <td><a th:href = "@{/courses/syllabus/{id}(id=${course.id})}"
+                        class = "btn btn-primary">Show Syllabus</a>
+                    </td>
                     <td th:text = "${course.year}"></td>
                     <td th:text = "${course.semester}"></td>
-                    <td th:text = "${course.numberOfEnrolledStudents}"></td>
+                    <td><a th:href = "@{/courses/students/{id}(id=${course.id})}"
+                           class = "btn btn-primary">Show Students</a>
+                    </td>
                     <td>
 
                         <a th:href = "@{/courses/edit/{id}(id=${course.id})}"
