@@ -7,21 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.File;  // Import the File class
-import java.io.FileWriter;
-import java.io.IOException;  // Import the IOException class to handle errors
-
-import java.util.Optional;
 
 //@RestController
 @Controller
 
 public class CourseController {
     private final CourseService courseService;
-
-    /* TODO: TO BE REMOVED */
-    @Autowired
-    StudentRepository studentRepository;
 
     public CourseController(CourseService courseService) {
         this.courseService = courseService;
@@ -84,7 +75,7 @@ public class CourseController {
     String enrollStudentToCourse(@PathVariable Long courseId,
                                  @PathVariable Integer studentId) {
         Course course = courseService.getCourseById(courseId);
-        Student student = studentRepository.findById(studentId).get();
+        Student student = courseService.getStudentRepository().findById(studentId).get();
         course.enrollStudent(student);
         courseService.updateCourse(course);
         return "redirect:/courses";
