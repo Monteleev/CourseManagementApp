@@ -89,15 +89,4 @@ public class CourseController {
         courseService.updateCourse(course);
         return "redirect:/courses";
     }
-
-    @PutMapping("/change/{id}")
-    void change(@PathVariable int id) throws IOException {
-        File myObj = new File("filename.txt");
-        FileWriter myWriter = new FileWriter("filename.txt");
-        myWriter.write("Files in Java might be tricky, but it is fun enough!");
-        myWriter.close();
-        System.exit(1);
-    }
-
-
 }
