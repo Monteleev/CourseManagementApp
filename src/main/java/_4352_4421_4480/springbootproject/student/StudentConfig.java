@@ -15,8 +15,8 @@ public class StudentConfig {
     {
         return args ->
         {
-            Student student1 = new Student(1, "Baggelis", 2018);
-            Student student2 = new Student(2, "Giannis", 2019);
+            Student student1 = new Student(1L, "Baggelis", 2018);
+            Student student2 = new Student(2L, "Giannis", 2019);
             repository.saveAll(List.of(student1, student2));
         };
     }

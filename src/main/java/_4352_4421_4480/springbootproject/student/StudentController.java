@@ -35,19 +35,19 @@ public class StudentController {
     }
 
     @GetMapping("students/edit/{id}")
-    public String editStudentForm(@PathVariable Integer id, Model model) {
+    public String editStudentForm(@PathVariable Long id, Model model) {
         model.addAttribute("student", studentService.getStudentById(id));
         return "edit_student";
     }
 
     @GetMapping("/students/{id}")
-    public String deleteStudent(@PathVariable Integer id) {
+    public String deleteStudent(@PathVariable Long id) {
         studentService.deleteStudentById(id);
         return "redirect:/students";
     }
 
     @PostMapping("/students/{id}")
-    public String updateStudent(@PathVariable int id,
+    public String updateStudent(@PathVariable Long id,
                                 @ModelAttribute("student") Student student,
                                 Model model) {
 

@@ -27,11 +27,11 @@ public class StudentService {
         studentRepository.save(student);
     }
 
-    public Student getStudentById(int id) {
+    public Student getStudentById(Long id) {
         return studentRepository.findById(id).get();
     }
 
-    public void deleteStudentById(int id) {
+    public void deleteStudentById(Long id) {
         studentRepository.deleteById(id);
     }
 
