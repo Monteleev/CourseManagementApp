@@ -74,7 +74,6 @@ public class CourseController {
 
         // get student from database by id
         Course existingCourse = courseService.getCourseById(id);
-        existingCourse.setId(id);
         existingCourse.setName(course.getName());
         existingCourse.setSyllabus(course.getSyllabus());
         existingCourse.setYear(course.getYear());
@@ -87,7 +86,7 @@ public class CourseController {
 
     @PutMapping("/courses/{courseId}/students/{studentId}")
     String enrollStudentToCourse(@PathVariable Long courseId,
-                                 @PathVariable Integer studentId) {
+                                 @PathVariable Long studentId) {
         Course course = courseService.getCourseById(courseId);
         Student student = courseService.getStudentRepository().findById(studentId).get();
         course.enrollStudent(student);
