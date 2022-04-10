@@ -108,6 +108,6 @@ public class CourseController {
         Student student = courseService.getStudentRepository().findById(studentId).get();
         course.enrollStudent(student);
         courseService.updateCourse(course);
-        return "redirect:/courses";
+        return "redirect:/courses_add_students";
     }
 }

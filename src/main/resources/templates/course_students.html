@@ -42,11 +42,26 @@
         </tr>
         </thead>
 
-        <tbody>
-        <tr th:each="course: ${courses}">
-            <td class="text-break" th:utext = "${course.enrolledStudents}"></td>
-        </tr>
-        </tbody>
+    <div class="row" th:each="c : ${courses}">
+        <table class="table table-bordered table-striped">
+            <thead class = "table-dark">
+                <tr>
+                    <th>Student Id</th>
+                    <th>Student Name</th>
+                    <th>Student Year Of Registration</th>
+                    <th>Student Semester</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr th:each= " s : ${c.enrolledStudents}">
+                        <td th:text=" ${s.id}"></td>
+                        <td th:text=" ${s.name}"></td>
+                        <td th:text=" ${s.yearOfRegistration}"></td>
+                        <td th:text=" ${s.semester}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </table>
 </div>
 </body>
