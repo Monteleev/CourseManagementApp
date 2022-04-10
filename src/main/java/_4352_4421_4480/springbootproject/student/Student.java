@@ -14,7 +14,7 @@ import java.util.List;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -33,14 +33,14 @@ public class Student {
 
     }
 
-    public Student(int id, String name, int yearOfRegistration) {
+    public Student(Long id, String name, int yearOfRegistration) {
         this.name = name;
         this.id = id;
         this.yearOfRegistration = yearOfRegistration;
         courses = new ArrayList<>();
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -65,7 +65,7 @@ public class Student {
         return courses;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
