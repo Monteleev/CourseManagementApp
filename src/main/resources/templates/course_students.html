@@ -63,6 +63,15 @@
             </table>
         </div>
     </table>
+    <div class = "col-lg-6 col-md-6 col-sm-6 container justify-content-center">
+        <form th:action="@{/courses/students/{id}(id=${courses.id})}" method="post">
+            <input type="text"
+                   name = "studentId"
+                   th:name="studentId"
+                   placeholder="Enter Student ID"/>
+            <button type="submit" class = "btn btn-primary">Add</button>
+        </form>
+    </div>
 </div>
 </body>
 </html>
