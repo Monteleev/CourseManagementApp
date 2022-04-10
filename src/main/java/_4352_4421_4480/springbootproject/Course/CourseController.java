@@ -1,8 +1,6 @@
 package _4352_4421_4480.springbootproject.Course;
 
 import _4352_4421_4480.springbootproject.student.Student;
-import _4352_4421_4480.springbootproject.student.StudentRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -52,11 +50,12 @@ public class CourseController {
         courseService.addNewCourse(course);
         return "redirect:/courses";
     }
-    @GetMapping("/courses/edit/{id}")
-    public String editCourseForm(@PathVariable Long id, Model model)
+
+    @GetMapping("/courses/edit/{courseId}")
+    public String editCourseForm(@PathVariable Long courseId, Model model)
     {
-        model.addAttribute("course",courseService.getCourseById(id));
-        model.addAttribute("enrolledStudents", courseService.getCourseById(id).getEnrolledStudents());
+        model.addAttribute("course",courseService.getCourseById(courseId));
+        model.addAttribute("enrolledStudents", courseService.getCourseById(courseId).getEnrolledStudents());
         return "edit_course";
     }
 
@@ -69,8 +68,8 @@ public class CourseController {
 
     @PostMapping("/courses/{id}")
     public String updateCourse(@PathVariable Long id,
-                                @ModelAttribute("course") Course course,
-                                Model model) {
+                               @ModelAttribute("course") Course course,
+                               Model model) {
 
         // get student from database by id
         Course existingCourse = courseService.getCourseById(id);
@@ -85,13 +84,17 @@ public class CourseController {
         return "redirect:/courses";
     }
 
-    @PutMapping("/courses/{courseId}/students/{studentId}")
-    String enrollStudentToCourse(@PathVariable Long courseId,
-                                 @PathVariable Integer studentId) {
+    @PostMapping("/courses/students/{id}")
+    public String enrollStudentToCourse(
+            @PathVariable("id") Long courseId,
+            @RequestParam(value = "studentId") Long studentId,
+            Model model
+    ) {
+        model.addAttribute("studentId", studentId);
         Course course = courseService.getCourseById(courseId);
         Student student = courseService.getStudentRepository().findById(studentId).get();
         course.enrollStudent(student);
         courseService.updateCourse(course);
-        return "redirect:/courses_add_students";
+        return "redirect:/courses/students/" + courseId;
     }
 }
