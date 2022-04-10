@@ -84,30 +84,17 @@ public class CourseController {
         return "redirect:/courses";
     }
 
-    @RequestMapping("/courses/students/{id}")
-    public @ResponseBody String studentIdSubmit(
-            @PathVariable(value = "id") String courseId,
+    @PostMapping("/courses/students/{id}")
+    public String enrollStudentToCourse(
+            @PathVariable("id") Long courseId,
             @RequestParam(value = "studentId") Long studentId,
             Model model
     ) {
         model.addAttribute("studentId", studentId);
-        System.out.println(studentId);
-        System.out.println(courseId);
-//        Student student = courseService.getStudentRepository().findById(studentId).get();
-//        course.enrollStudent(student);
-//        courseService.updateCourse(course);
-        return "course_students";
-    }
-
-
-    //@RequestMapping(value = "/courses/{courseId}/students/{studentId}", method = RequestMethod.PUT)
-    @PutMapping("/courses/{courseId}/students/{studentId}")
-    String enrollStudentToCourse(@PathVariable("courseId") Long courseId,
-                                 @PathVariable("studentId") Long studentId) {
         Course course = courseService.getCourseById(courseId);
         Student student = courseService.getStudentRepository().findById(studentId).get();
         course.enrollStudent(student);
         courseService.updateCourse(course);
-        return "redirect:/courses_add_students";
+        return "redirect:/courses/students/" + courseId;
     }
 }
