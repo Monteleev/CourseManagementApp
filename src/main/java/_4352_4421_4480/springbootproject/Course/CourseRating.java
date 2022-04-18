@@ -22,6 +22,19 @@ public class CourseRating {
 
     int rating;
 
-    // standard constructors, getters, and setters
+    public CourseRating(int rating) {
+        this.rating = rating;
+    }
 
+    public CourseRating() {
+
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public int getRating() {
+        return rating;
+    }
 }

@@ -18,6 +18,9 @@ public class CourseGrade implements Serializable {
 
     }
 
-    // standard constructors, getters, and setters
-    // hashcode and equals implementation
+    public CourseGrade(Long courseId, Long studentId){
+        this.courseId = courseId;
+        this.studentId = studentId;
+    }
+
 }
