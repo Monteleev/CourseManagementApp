@@ -1,6 +1,7 @@
 package _4352_4421_4480.springbootproject.student;
 
 import _4352_4421_4480.springbootproject.Course.Course;
+import _4352_4421_4480.springbootproject.Course.CourseRating;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -29,6 +30,10 @@ public class Student {
     @ManyToMany(mappedBy = "enrolledStudents")
     private List<Course> courses;
 
+    @OneToMany(mappedBy = "student")
+    List<CourseRating> ratings;
+
+
     public Student() {
 
     }
@@ -37,6 +42,7 @@ public class Student {
         this.name = name;
         this.id = id;
         this.yearOfRegistration = yearOfRegistration;
+        this.ratings = ratings;
         courses = new ArrayList<>();
     }
 
