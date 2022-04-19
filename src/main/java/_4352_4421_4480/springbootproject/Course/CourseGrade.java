@@ -23,4 +23,6 @@ public class CourseGrade implements Serializable {
         this.studentId = studentId;
     }
 
+
+
 }

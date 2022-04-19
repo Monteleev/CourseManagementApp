@@ -42,7 +42,7 @@ public class Student {
         this.name = name;
         this.id = id;
         this.yearOfRegistration = yearOfRegistration;
-        this.ratings = ratings;
+        ratings = new ArrayList<>();
         courses = new ArrayList<>();
     }
 

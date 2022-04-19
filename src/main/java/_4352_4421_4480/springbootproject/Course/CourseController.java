@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.Table;
+import java.util.List;
 
 
 //@RestController
@@ -94,8 +95,12 @@ public class CourseController {
         model.addAttribute("studentId", studentId);
         Course course = courseService.getCourseById(courseId);
         Student student = courseService.getStudentRepository().findById(studentId).get();
+        //CourseRating courseRating = new CourseRating(course, student, 5);
+        //course.registerGradeStudent(courseRating);
+        //List<CourseRating> pekino = course.getRegisterStudentsGrades();
         course.enrollStudent(student);
         courseService.updateCourse(course);
+        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         return "redirect:/courses/students/" + courseId;
     }
 }

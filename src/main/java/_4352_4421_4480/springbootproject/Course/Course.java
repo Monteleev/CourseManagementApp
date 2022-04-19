@@ -36,6 +36,7 @@ public class Course {
         this.syllabus = syllabus;
         this.year = year;
         this.semester = semester;
+        ratings = new ArrayList<>();
         enrolledStudents = new ArrayList<>();
     }
 
@@ -93,6 +94,14 @@ public class Course {
 
     public void enrollStudent(Student student){
         enrolledStudents.add(student);
+    }
+
+    public void registerGradeStudent(CourseRating courseRating){
+        ratings.add(courseRating);
+    }
+
+    public List<CourseRating> getRegisterStudentsGrades(){
+        return ratings;
     }
 
 

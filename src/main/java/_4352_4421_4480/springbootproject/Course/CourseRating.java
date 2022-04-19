@@ -22,12 +22,19 @@ public class CourseRating {
 
     int rating;
 
-    public CourseRating(int rating) {
+    public CourseRating() {
+
+    }
+
+    public CourseRating(Course course, Student student, int rating){
+        this.course = course;
+        this.student = student;
         this.rating = rating;
     }
 
-    public CourseRating() {
-
+    public CourseRating(Course course, Student student){
+        this.course = course;
+        this.student = student;
     }
 
     public void setRating(int rating) {
@@ -37,4 +44,5 @@ public class CourseRating {
     public int getRating() {
         return rating;
     }
+
 }
