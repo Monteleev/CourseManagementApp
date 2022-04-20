@@ -17,8 +17,8 @@ public class GradesController {
     }
 
     @PostMapping("/courses/students/{id}")
-    public String addGrade(@PathVariable("student") Student student,
-                           @PathVariable("course") Course course,
+    public String addGrade(@PathVariable("course_id") Course course,
+                           @PathVariable("student_id") Student student,
                            @RequestParam(value = "grade") int grade,
                            Model model){
         model.addAttribute("grade", grade);

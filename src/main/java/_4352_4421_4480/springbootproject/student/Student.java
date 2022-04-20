@@ -82,5 +82,13 @@ public class Student {
     public void setYearOfRegistration(int yearOfRegistration) {
         this.yearOfRegistration = yearOfRegistration;
     }
+
+    public void registerGradeStudent(CourseRating courseRating){
+        ratings.add(courseRating);
+    }
+
+    public List<CourseRating> getRegisterStudentsGrades(){
+        return ratings;
+    }
 }
 

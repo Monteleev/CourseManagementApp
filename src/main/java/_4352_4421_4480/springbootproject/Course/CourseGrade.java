@@ -14,6 +14,9 @@ public class CourseGrade implements Serializable {
     @Column(name = "student_id")
     Long studentId;
 
+    // standard constructors, getters, and setters
+    // hashcode and equals implementation
+
     public CourseGrade() {
 
     }

@@ -1,11 +1,11 @@
 package _4352_4421_4480.springbootproject.Course;
 
 import _4352_4421_4480.springbootproject.student.Student;
+import _4352_4421_4480.springbootproject.student.StudentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.Table;
 import java.util.List;
 
 
@@ -13,9 +13,11 @@ import java.util.List;
 @Controller
 public class CourseController {
     private final CourseService courseService;
+    //private final StudentService studentService;
 
-    public CourseController(CourseService courseService) {
+    public CourseController(CourseService courseService, StudentService studentService) {
         this.courseService = courseService;
+        //this.studentService = studentService;
     }
 
     @GetMapping("/courses")
@@ -95,11 +97,14 @@ public class CourseController {
         model.addAttribute("studentId", studentId);
         Course course = courseService.getCourseById(courseId);
         Student student = courseService.getStudentRepository().findById(studentId).get();
-        //CourseRating courseRating = new CourseRating(course, student, 5);
-        //course.registerGradeStudent(courseRating);
-        //List<CourseRating> pekino = course.getRegisterStudentsGrades();
+        //CourseGrade courseGrade = new CourseGrade(courseService.getCourseById(courseId).getId(), studentService.getStudentById(studentId).getId());
+        CourseRating courseRating = new CourseRating(course, student, 5);
+        List<CourseRating> pekino = course.getRegisterStudentsGrades();
+        course.registerGradeStudent(courseRating);
         course.enrollStudent(student);
         courseService.updateCourse(course);
+        System.out.println(pekino.toString() + " h lista");
+        System.out.println(courseRating + " to antikeimeno");
         System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         return "redirect:/courses/students/" + courseId;
     }
