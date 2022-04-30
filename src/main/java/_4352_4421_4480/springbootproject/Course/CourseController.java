@@ -6,18 +6,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 
 //@RestController
 @Controller
 public class CourseController {
     private final CourseService courseService;
-    //private final StudentService studentService;
+    private StudentService studentService;  //TODO: Shouldn't be like that
+    private CourseRatingService courseRatingService;
 
-    public CourseController(CourseService courseService, StudentService studentService) {
+    public CourseController(CourseService courseService, StudentService studentService, CourseRatingService courseRatingService) {
         this.courseService = courseService;
-        //this.studentService = studentService;
+        this.studentService = studentService;
+        this.courseRatingService = courseRatingService;
     }
 
     @GetMapping("/courses")
@@ -97,15 +97,18 @@ public class CourseController {
         model.addAttribute("studentId", studentId);
         Course course = courseService.getCourseById(courseId);
         Student student = courseService.getStudentRepository().findById(studentId).get();
-        //CourseGrade courseGrade = new CourseGrade(courseService.getCourseById(courseId).getId(), studentService.getStudentById(studentId).getId());
-        CourseRating courseRating = new CourseRating(course, student, 5);
-        List<CourseRating> pekino = course.getRegisterStudentsGrades();
-        course.registerGradeStudent(courseRating);
+
+        CourseGrade ratingId = new CourseGrade(courseId, studentId);
+        CourseRating courseRating = new CourseRating(ratingId, course, student, 0);
+
+        courseRatingService.addNewCourseRating(courseRating);
+        courseRatingService.registerGrade(courseRating);
+
         course.enrollStudent(student);
+
         courseService.updateCourse(course);
-        System.out.println(pekino.toString() + " h lista");
-        System.out.println(courseRating + " to antikeimeno");
-        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        studentService.updateStudent(student);
+
         return "redirect:/courses/students/" + courseId;
     }
 }

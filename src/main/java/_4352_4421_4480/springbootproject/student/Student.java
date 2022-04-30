@@ -83,12 +83,24 @@ public class Student {
         this.yearOfRegistration = yearOfRegistration;
     }
 
-    public void registerGradeStudent(CourseRating courseRating){
+    public void registerGrade(CourseRating courseRating){
         ratings.add(courseRating);
     }
 
     public List<CourseRating> getRegisterStudentsGrades(){
         return ratings;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name= " + name  +
+                ", yearOfRegistration='" + yearOfRegistration + '\'' +
+                ", semester=" + semester +
+                ", courses=" + courses +
+                ", ratings=" + ratings +
+                '}';
     }
 }
 

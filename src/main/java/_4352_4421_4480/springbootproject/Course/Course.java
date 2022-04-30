@@ -96,7 +96,7 @@ public class Course {
         enrolledStudents.add(student);
     }
 
-    public void registerGradeStudent(CourseRating courseRating){
+    public void registerGrade(CourseRating courseRating){
         ratings.add(courseRating);
     }
 
@@ -107,13 +107,14 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", syllabus='" + syllabus + '\'' +
-                ", year=" + year +
-                ", semester=" + semester +
-                ", enrolledStudents=" + enrolledStudents +
+        return "Course {\n" +
+                "   id= " + id + "\n" +
+                "   name= " + name + "\n" +
+                "   syllabus= " + syllabus + "\n" +
+                "   year= " + year + "\n" +
+                "   semester= " + semester + "\n" +
+                "   enrolledStudents= " + enrolledStudents + "\n" +
+                "   ratings= " + ratings + "\n" +
                 '}';
     }
 }

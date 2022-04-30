@@ -5,11 +5,13 @@ import _4352_4421_4480.springbootproject.student.Student;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "course_rating")
 public class CourseRating {
 
     //@EmbeddedId to mark the primary key,
     // which is an instance of the CourseGrade class
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EmbeddedId
     CourseGrade id;
 
@@ -27,9 +29,7 @@ public class CourseRating {
 
     // standard constructors, getters, and setters
 
-    public CourseRating() {
-
-    }
+    public CourseRating() {}
 
     public CourseRating(CourseGrade id, Course course, Student student, int rating){
         this.course = course;
@@ -38,15 +38,12 @@ public class CourseRating {
         this.id = id;
     }
 
-    public CourseRating(Course course, Student student, int rating){
-        this.course = course;
-        this.student = student;
-        this.rating = rating;
+    public Student getStudent() {
+        return student;
     }
 
-    public CourseRating(Course course, Student student){
-        this.course = course;
-        this.student = student;
+    public Course getCourse() {
+        return course;
     }
 
     public void setRating(int rating) {
