@@ -1,7 +1,12 @@
-package _4352_4421_4480.springbootproject.Course;
+package _4352_4421_4480.springbootproject.controller;
 
-import _4352_4421_4480.springbootproject.student.Student;
-import _4352_4421_4480.springbootproject.student.StudentService;
+import _4352_4421_4480.springbootproject.service.CourseRatingService;
+import _4352_4421_4480.springbootproject.service.CourseService;
+import _4352_4421_4480.springbootproject.entity.Course;
+import _4352_4421_4480.springbootproject.entity.CourseGrade;
+import _4352_4421_4480.springbootproject.entity.CourseRating;
+import _4352_4421_4480.springbootproject.entity.Student;
+import _4352_4421_4480.springbootproject.service.StudentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

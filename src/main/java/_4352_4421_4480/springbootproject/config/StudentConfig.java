@@ -1,10 +1,11 @@
-package _4352_4421_4480.springbootproject.student;
+package _4352_4421_4480.springbootproject.config;
 
+import _4352_4421_4480.springbootproject.entity.Student;
+import _4352_4421_4480.springbootproject.repository.StudentRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Configuration

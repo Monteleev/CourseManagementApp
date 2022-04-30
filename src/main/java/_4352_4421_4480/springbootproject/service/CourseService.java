@@ -1,12 +1,12 @@
-package _4352_4421_4480.springbootproject.Course;
+package _4352_4421_4480.springbootproject.service;
 
-import _4352_4421_4480.springbootproject.student.StudentRepository;
+import _4352_4421_4480.springbootproject.entity.Course;
+import _4352_4421_4480.springbootproject.repository.CourseRatingRepository;
+import _4352_4421_4480.springbootproject.repository.CourseRepository;
+import _4352_4421_4480.springbootproject.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 

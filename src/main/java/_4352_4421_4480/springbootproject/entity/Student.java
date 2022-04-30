@@ -1,7 +1,7 @@
-package _4352_4421_4480.springbootproject.student;
+package _4352_4421_4480.springbootproject.entity;
 
-import _4352_4421_4480.springbootproject.Course.Course;
-import _4352_4421_4480.springbootproject.Course.CourseRating;
+import _4352_4421_4480.springbootproject.entity.Course;
+import _4352_4421_4480.springbootproject.entity.CourseRating;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;

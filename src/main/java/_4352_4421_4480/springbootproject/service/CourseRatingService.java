@@ -1,6 +1,10 @@
-package _4352_4421_4480.springbootproject.Course;
+package _4352_4421_4480.springbootproject.service;
 
-import _4352_4421_4480.springbootproject.student.StudentRepository;
+import _4352_4421_4480.springbootproject.entity.CourseGrade;
+import _4352_4421_4480.springbootproject.entity.CourseRating;
+import _4352_4421_4480.springbootproject.repository.CourseRatingRepository;
+import _4352_4421_4480.springbootproject.repository.CourseRepository;
+import _4352_4421_4480.springbootproject.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
