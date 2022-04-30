@@ -1,4 +1,4 @@
-package _4352_4421_4480.springbootproject.Course;
+package _4352_4421_4480.springbootproject.entity;
 
 import javax.persistence.*;
 import javax.sql.rowset.serial.SerialArray;

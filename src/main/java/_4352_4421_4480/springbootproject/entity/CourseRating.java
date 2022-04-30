@@ -1,6 +1,4 @@
-package _4352_4421_4480.springbootproject.Course;
-
-import _4352_4421_4480.springbootproject.student.Student;
+package _4352_4421_4480.springbootproject.entity;
 
 import javax.persistence.*;
 

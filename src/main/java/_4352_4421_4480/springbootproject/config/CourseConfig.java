@@ -1,5 +1,7 @@
-package _4352_4421_4480.springbootproject.Course;
+package _4352_4421_4480.springbootproject.config;
 
+import _4352_4421_4480.springbootproject.entity.Course;
+import _4352_4421_4480.springbootproject.repository.CourseRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
