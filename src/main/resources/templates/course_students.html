@@ -46,10 +46,12 @@
         <table class="table table-bordered table-striped">
             <thead class = "table-dark">
                 <tr>
-                    <th>Student Id</th>
-                    <th>Student Name</th>
-                    <th>Student Year Of Registration</th>
-                    <th>Student Semester</th>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Year Of Registration</th>
+                    <th>Semester</th>
+                    <th>Grade</th>
+                    <th>Enter new Grade</th>
                 </tr>
             </thead>
                 <tbody>
@@ -58,7 +60,18 @@
                         <td th:text=" ${s.name}"></td>
                         <td th:text=" ${s.yearOfRegistration}"></td>
                         <td th:text=" ${s.semester}"></td>
+                        <td th:text=" ${s.getCourseGrade(c)}"></td>
+                        <td align="center">
+                            <form th:action="@{/courses/students/addgrade/{id}(id=${c.id})}" method="post">
+                                <input type="text"
+                                       name = "newGrade"
+                                       th:name="newGrade"
+                                       placeholder="Enter new Grade"/>
+                                <button type="submit" class = "btn btn-primary">Add</button>
+                            </form>
+                        </td>
                     </tr>
+
                 </tbody>
             </table>
         </div>

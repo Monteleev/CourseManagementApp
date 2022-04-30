@@ -91,6 +91,16 @@ public class Student {
         return ratings;
     }
 
+    public Integer getCourseGrade(Course course) {
+        Long courseId = course.getId();
+        for (CourseRating courseRate : ratings) {
+            if (courseRate.getCourse().getId().equals(courseId)) {
+                return courseRate.getRating();
+            }
+        }
+        return -1;
+    }
+
     @Override
     public String toString() {
         return "Student{" +

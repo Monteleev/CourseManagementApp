@@ -87,15 +87,16 @@ public class CourseController {
         existingCourse.setYear(course.getYear());
         existingCourse.setSemester(course.getSemester());
 
-
         courseService.updateCourse(existingCourse);
         return "redirect:/courses";
     }
+
 
     @PostMapping("/courses/students/{id}")
     public String enrollStudentToCourse(
             @PathVariable("id") Long courseId,
             @RequestParam(value = "studentId") Long studentId,
+            @ModelAttribute("course") Course course1,
             Model model
     ) {
         model.addAttribute("studentId", studentId);
@@ -112,7 +113,6 @@ public class CourseController {
 
         courseService.updateCourse(course);
         studentService.updateStudent(student);
-
         return "redirect:/courses/students/" + courseId;
     }
 }
