@@ -1,20 +1,23 @@
 package _4352_4421_4480.springbootproject.Course;
 
 import _4352_4421_4480.springbootproject.student.Student;
+import _4352_4421_4480.springbootproject.student.StudentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import javax.persistence.Table;
 
 
 //@RestController
 @Controller
 public class CourseController {
     private final CourseService courseService;
+    private StudentService studentService;  //TODO: Shouldn't be like that
+    private CourseRatingService courseRatingService;
 
-    public CourseController(CourseService courseService) {
+    public CourseController(CourseService courseService, StudentService studentService, CourseRatingService courseRatingService) {
         this.courseService = courseService;
+        this.studentService = studentService;
+        this.courseRatingService = courseRatingService;
     }
 
     @GetMapping("/courses")
@@ -94,8 +97,18 @@ public class CourseController {
         model.addAttribute("studentId", studentId);
         Course course = courseService.getCourseById(courseId);
         Student student = courseService.getStudentRepository().findById(studentId).get();
+
+        CourseGrade ratingId = new CourseGrade(courseId, studentId);
+        CourseRating courseRating = new CourseRating(ratingId, course, student, 0);
+
+        courseRatingService.addNewCourseRating(courseRating);
+        courseRatingService.registerGrade(courseRating);
+
         course.enrollStudent(student);
+
         courseService.updateCourse(course);
+        studentService.updateStudent(student);
+
         return "redirect:/courses/students/" + courseId;
     }
 }

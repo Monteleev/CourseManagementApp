@@ -36,6 +36,7 @@ public class Course {
         this.syllabus = syllabus;
         this.year = year;
         this.semester = semester;
+        ratings = new ArrayList<>();
         enrolledStudents = new ArrayList<>();
     }
 
@@ -95,16 +96,25 @@ public class Course {
         enrolledStudents.add(student);
     }
 
+    public void registerGrade(CourseRating courseRating){
+        ratings.add(courseRating);
+    }
+
+    public List<CourseRating> getRegisterStudentsGrades(){
+        return ratings;
+    }
+
 
     @Override
     public String toString() {
-        return "Course{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", syllabus='" + syllabus + '\'' +
-                ", year=" + year +
-                ", semester=" + semester +
-                ", enrolledStudents=" + enrolledStudents +
+        return "Course {\n" +
+                "   id= " + id + "\n" +
+                "   name= " + name + "\n" +
+                "   syllabus= " + syllabus + "\n" +
+                "   year= " + year + "\n" +
+                "   semester= " + semester + "\n" +
+                "   enrolledStudents= " + enrolledStudents + "\n" +
+                "   ratings= " + ratings + "\n" +
                 '}';
     }
 }

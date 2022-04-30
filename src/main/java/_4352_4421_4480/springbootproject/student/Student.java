@@ -42,7 +42,7 @@ public class Student {
         this.name = name;
         this.id = id;
         this.yearOfRegistration = yearOfRegistration;
-        this.ratings = ratings;
+        ratings = new ArrayList<>();
         courses = new ArrayList<>();
     }
 
@@ -81,6 +81,26 @@ public class Student {
 
     public void setYearOfRegistration(int yearOfRegistration) {
         this.yearOfRegistration = yearOfRegistration;
+    }
+
+    public void registerGrade(CourseRating courseRating){
+        ratings.add(courseRating);
+    }
+
+    public List<CourseRating> getRegisterStudentsGrades(){
+        return ratings;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name= " + name  +
+                ", yearOfRegistration='" + yearOfRegistration + '\'' +
+                ", semester=" + semester +
+                ", courses=" + courses +
+                ", ratings=" + ratings +
+                '}';
     }
 }
 
