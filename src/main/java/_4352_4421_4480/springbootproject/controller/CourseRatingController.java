@@ -21,8 +21,6 @@ public class CourseRatingController {
                                   CourseService courseService,
                                   StudentService studentService) {
         this.courseRatingService = courseRatingService;
-        this.courseService = courseService;
-        this.studentService = studentService;
 
     }
 

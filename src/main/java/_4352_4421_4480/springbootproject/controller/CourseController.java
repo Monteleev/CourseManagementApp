@@ -77,8 +77,7 @@ public class CourseController {
 
     @PostMapping("/courses/{id}")
     public String updateCourse(@PathVariable Long id,
-                               @ModelAttribute("course") Course course,
-                               Model model) {
+                               @ModelAttribute("course") Course course) {
 
         // get student from database by id
         Course existingCourse = courseService.getCourseById(id);

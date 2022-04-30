@@ -14,15 +14,12 @@ import java.util.Optional;
 public class CourseService {
     private final CourseRepository courseRepository;
     private final StudentRepository studentRepository;
-    private final CourseRatingRepository courseRatingRepository;
 
     @Autowired
     public CourseService(CourseRepository courseRepository,
-                         StudentRepository studentRepository,
-                         CourseRatingRepository courseRatingRepository) {
+                         StudentRepository studentRepository) {
         this.courseRepository = courseRepository;
         this.studentRepository = studentRepository;
-        this.courseRatingRepository = courseRatingRepository;
     }
 
     public List<Course> getCourse()
@@ -32,10 +29,6 @@ public class CourseService {
 
     public StudentRepository getStudentRepository() {
         return studentRepository;
-    }
-
-    public CourseRatingRepository getCourseRatingRepository() {
-        return courseRatingRepository;
     }
 
     public void addNewCourse(Course course)

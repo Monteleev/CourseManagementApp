@@ -15,8 +15,6 @@ import java.util.List;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private CourseService courseService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {

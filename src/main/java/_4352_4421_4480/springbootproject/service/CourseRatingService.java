@@ -13,16 +13,10 @@ import java.util.Optional;
 @Service
 public class CourseRatingService {
     private final CourseRatingRepository courseRatingRepository;
-    private CourseRepository courseRepository;
-    private StudentRepository studentRepository;
 
     @Autowired
-    public CourseRatingService(CourseRatingRepository courseRatingRepository,
-                               CourseRepository courseRepository,
-                               StudentRepository studentRepository) {
+    public CourseRatingService(CourseRatingRepository courseRatingRepository) {
         this.courseRatingRepository = courseRatingRepository;
-        this.courseRepository = courseRepository;
-        this.studentRepository = studentRepository;
     }
 
     public void addNewCourseRating(CourseRating courseRating) {
