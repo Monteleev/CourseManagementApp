@@ -1,4 +1,4 @@
-package _4352_4421_4480.springbootproject.repository;
+package _4352_4421_4480.springbootproject.dao;
 
 import _4352_4421_4480.springbootproject.entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;

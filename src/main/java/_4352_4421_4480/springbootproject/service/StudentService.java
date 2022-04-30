@@ -1,7 +1,7 @@
 package _4352_4421_4480.springbootproject.service;
 
 import _4352_4421_4480.springbootproject.entity.Student;
-import _4352_4421_4480.springbootproject.repository.StudentRepository;
+import _4352_4421_4480.springbootproject.dao.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
