@@ -104,7 +104,7 @@ public class CourseController {
         Student student = courseService.getStudentRepository().findById(studentId).get();
 
         RatingId ratingId = new RatingId(courseId, studentId);
-        CourseRating courseRating = new CourseRating(ratingId, course, student, 0);
+        CourseRating courseRating = new CourseRating(ratingId, course, student, "-");
 
         courseRatingService.addNewCourseRating(courseRating);
         courseRatingService.registerGrade(courseRating);

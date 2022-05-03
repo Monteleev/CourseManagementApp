@@ -26,11 +26,8 @@ public class CourseRatingController {
 
         CourseRating existingRating =
                 courseRatingService.getRatingById(new RatingId(courseId, studentId));
-        existingRating.setRating(newGrade);
+        existingRating.setRating(String.valueOf(newGrade));
         courseRatingService.updateCourseRating(existingRating);
-
-        System.out.println(newGrade);
-        System.out.println(studentId);
 
         return "redirect:/courses/students/" + courseId;
     }

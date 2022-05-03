@@ -64,10 +64,12 @@
                         <td align="center">
                             <form th:action="@{/courses/students/{course_id}/edit/{student_id}(course_id=${c.id}, student_id=${s.id})}"
                                   method="post">
-                                <input type="text"
+                                <input type="number"
                                        name = "newGrade"
                                        th:name="newGrade"
-                                       placeholder="Enter new Grade"/>
+                                       placeholder="Enter new Grade"
+                                       min = "0"
+                                       max = "10"/>
                                 <button type="submit" class = "btn btn-primary">Add</button>
                             </form>
                         </td>

@@ -23,13 +23,13 @@ public class CourseRating {
     @JoinColumn(name = "course_id")
     Course course;
 
-    int rating;
+    String rating;
 
     // standard constructors, getters, and setters
 
     public CourseRating() {}
 
-    public CourseRating(RatingId id, Course course, Student student, int rating){
+    public CourseRating(RatingId id, Course course, Student student, String rating){
         this.course = course;
         this.student = student;
         this.rating = rating;
@@ -44,11 +44,11 @@ public class CourseRating {
         return course;
     }
 
-    public void setRating(int rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 
-    public int getRating() {
+    public String getRating() {
         return rating;
     }
 
