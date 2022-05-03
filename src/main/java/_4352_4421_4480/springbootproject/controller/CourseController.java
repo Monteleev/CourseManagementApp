@@ -3,7 +3,7 @@ package _4352_4421_4480.springbootproject.controller;
 import _4352_4421_4480.springbootproject.service.CourseRatingService;
 import _4352_4421_4480.springbootproject.service.CourseService;
 import _4352_4421_4480.springbootproject.entity.Course;
-import _4352_4421_4480.springbootproject.entity.CourseGrade;
+import _4352_4421_4480.springbootproject.entity.RatingId;
 import _4352_4421_4480.springbootproject.entity.CourseRating;
 import _4352_4421_4480.springbootproject.entity.Student;
 import _4352_4421_4480.springbootproject.service.StudentService;
@@ -103,7 +103,7 @@ public class CourseController {
         Course course = courseService.getCourseById(courseId);
         Student student = courseService.getStudentRepository().findById(studentId).get();
 
-        CourseGrade ratingId = new CourseGrade(courseId, studentId);
+        RatingId ratingId = new RatingId(courseId, studentId);
         CourseRating courseRating = new CourseRating(ratingId, course, student, 0);
 
         courseRatingService.addNewCourseRating(courseRating);

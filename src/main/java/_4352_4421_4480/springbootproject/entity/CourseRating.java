@@ -11,7 +11,7 @@ public class CourseRating {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EmbeddedId
-    CourseGrade id;
+    RatingId id;
 
     @ManyToOne
     @MapsId("studentId")
@@ -29,7 +29,7 @@ public class CourseRating {
 
     public CourseRating() {}
 
-    public CourseRating(CourseGrade id, Course course, Student student, int rating){
+    public CourseRating(RatingId id, Course course, Student student, int rating){
         this.course = course;
         this.student = student;
         this.rating = rating;

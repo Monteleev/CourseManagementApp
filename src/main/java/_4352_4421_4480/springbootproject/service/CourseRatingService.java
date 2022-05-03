@@ -1,10 +1,8 @@
 package _4352_4421_4480.springbootproject.service;
 
-import _4352_4421_4480.springbootproject.entity.CourseGrade;
+import _4352_4421_4480.springbootproject.entity.RatingId;
 import _4352_4421_4480.springbootproject.entity.CourseRating;
 import _4352_4421_4480.springbootproject.dao.CourseRatingRepository;
-import _4352_4421_4480.springbootproject.dao.CourseRepository;
-import _4352_4421_4480.springbootproject.dao.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,9 +17,13 @@ public class CourseRatingService {
         this.courseRatingRepository = courseRatingRepository;
     }
 
+    public CourseRating getRatingById(RatingId id) {
+        return courseRatingRepository.findCourseRatingById(id).get();
+    }
+
     public void addNewCourseRating(CourseRating courseRating) {
-        CourseGrade courseGrade = new CourseGrade(courseRating.getCourse().getId(), courseRating.getStudent().getId());
-        Optional<CourseRating> courseRatingOptional = courseRatingRepository.findCourseRatingById(courseGrade);
+        RatingId ratingId = new RatingId(courseRating.getCourse().getId(), courseRating.getStudent().getId());
+        Optional<CourseRating> courseRatingOptional = courseRatingRepository.findCourseRatingById(ratingId);
         if (courseRatingOptional.isPresent())
         {
             throw new IllegalStateException("This student already has a grade assigned");
@@ -32,6 +34,10 @@ public class CourseRatingService {
     public void registerGrade(CourseRating courseRating) {
         courseRating.getCourse().registerGrade(courseRating);
         courseRating.getStudent().registerGrade(courseRating);
+    }
+
+    public CourseRating updateCourseRating(CourseRating courseRating) {
+        return courseRatingRepository.save(courseRating);
     }
 
 }

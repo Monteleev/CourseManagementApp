@@ -1,12 +1,11 @@
 package _4352_4421_4480.springbootproject.entity;
 
 import javax.persistence.*;
-import javax.sql.rowset.serial.SerialArray;
 import java.io.Serializable;
 
 
 @Embeddable
-public class CourseGrade implements Serializable {
+public class RatingId implements Serializable {
 
     @Column(name = "course_id")
     Long courseId;
@@ -17,11 +16,11 @@ public class CourseGrade implements Serializable {
     // standard constructors, getters, and setters
     // hashcode and equals implementation
 
-    public CourseGrade() {
+    public RatingId() {
 
     }
 
-    public CourseGrade(Long courseId, Long studentId){
+    public RatingId(Long courseId, Long studentId){
         this.courseId = courseId;
         this.studentId = studentId;
     }

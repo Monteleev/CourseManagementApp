@@ -62,7 +62,8 @@
                         <td th:text=" ${s.semester}"></td>
                         <td th:text=" ${s.getCourseGrade(c)}"></td>
                         <td align="center">
-                            <form th:action="@{/courses/students/addgrade/{id}(id=${c.id})}" method="post">
+                            <form th:action="@{/courses/students/{course_id}/edit/{student_id}(course_id=${c.id}, student_id=${s.id})}"
+                                  method="post">
                                 <input type="text"
                                        name = "newGrade"
                                        th:name="newGrade"
