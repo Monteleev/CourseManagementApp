@@ -114,7 +114,6 @@ public class CourseController {
 
         courseService.updateCourse(course);
         studentService.updateStudent(student);
-        System.out.println(course);
         return "redirect:/courses/students/" + courseId;
     }
 
@@ -123,14 +122,10 @@ public class CourseController {
     public String removeStudentFromCourse(@PathVariable("course_id") Long courseId,
                                           @PathVariable("student_id") Long studentId) {
         Course course = courseService.getCourseById(courseId);
-        Student student = studentService.getStudentById(studentId);
-
         RatingId ratingId = new RatingId(courseId, studentId);
 
         courseRatingService.deleteRating(ratingId);
         courseService.updateCourse(course);
-
-        System.out.println(course);
         return "redirect:/courses/students/" + courseId;
     }
 }
