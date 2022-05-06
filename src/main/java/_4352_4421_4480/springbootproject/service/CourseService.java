@@ -1,9 +1,7 @@
 package _4352_4421_4480.springbootproject.service;
 
 import _4352_4421_4480.springbootproject.entity.Course;
-import _4352_4421_4480.springbootproject.dao.CourseRatingRepository;
 import _4352_4421_4480.springbootproject.dao.CourseRepository;
-import _4352_4421_4480.springbootproject.dao.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,22 +12,15 @@ import java.util.Optional;
 @Service
 public class CourseService {
     private final CourseRepository courseRepository;
-    private final StudentRepository studentRepository;
 
     @Autowired
-    public CourseService(CourseRepository courseRepository,
-                         StudentRepository studentRepository) {
+    public CourseService(CourseRepository courseRepository) {
         this.courseRepository = courseRepository;
-        this.studentRepository = studentRepository;
     }
 
     public List<Course> getCourse()
     {
         return courseRepository.findAll();
-    }
-
-    public StudentRepository getStudentRepository() {
-        return studentRepository;
     }
 
     public void addNewCourse(Course course)

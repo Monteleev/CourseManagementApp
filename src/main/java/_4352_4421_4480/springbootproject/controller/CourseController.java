@@ -6,6 +6,7 @@ import _4352_4421_4480.springbootproject.entity.RatingId;
 import _4352_4421_4480.springbootproject.entity.CourseRating;
 import _4352_4421_4480.springbootproject.entity.Student;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +18,7 @@ import java.util.Map;
 @Controller
 public class CourseController {
     private final CourseService courseService;
-    private StudentService studentService;  //TODO: Shouldn't be like that
+    private StudentService studentService;
     private CourseRatingService courseRatingService;
 
     public CourseController(CourseService courseService, StudentService studentService, CourseRatingService courseRatingService) {
@@ -102,7 +103,7 @@ public class CourseController {
     ) {
         model.addAttribute("studentId", studentId);
         Course course = courseService.getCourseById(courseId);
-        Student student = courseService.getStudentRepository().findById(studentId).get();
+        Student student = studentService.getStudentById(studentId);
 
         RatingId ratingId = new RatingId(courseId, studentId);
         CourseRating courseRating = new CourseRating(ratingId, course, student, "5");
@@ -122,5 +123,17 @@ public class CourseController {
         return "redirect:/courses/students/" + courseId;
     }
 
+
+    @Transactional
+    @GetMapping("/courses/students/{course_id}/remove/{student_id}")
+    public String removeStudentFromCourse(@PathVariable("course_id") Long courseId,
+                                          @PathVariable("student_id") Long studentId) {
+        Course course = courseService.getCourseById(courseId);
+        RatingId ratingId = new RatingId(courseId, studentId);
+
+        courseRatingService.deleteRating(ratingId);
+        courseService.updateCourse(course);
+        return "redirect:/courses/students/" + courseId;
+    }
 
 }

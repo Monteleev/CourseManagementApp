@@ -1,17 +1,17 @@
 package _4352_4421_4480.springbootproject.controller;
 
+import _4352_4421_4480.springbootproject.entity.Course;
 import _4352_4421_4480.springbootproject.entity.Student;
+import _4352_4421_4480.springbootproject.service.CourseService;
 import _4352_4421_4480.springbootproject.service.StudentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class StudentController {
     private final StudentService studentService;
+    private Long currentCourseId;
 
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
@@ -36,9 +36,12 @@ public class StudentController {
         return "redirect:/students";
     }
 
-    @GetMapping("students/edit/{id}")
-    public String editStudentForm(@PathVariable Long id, Model model) {
-        model.addAttribute("student", studentService.getStudentById(id));
+    @GetMapping("students/{course_id}/edit/{student_id}")
+    public String editStudentForm(@PathVariable("student_id") Long studentId,
+                                  @PathVariable("course_id") Long courseId,
+                                  Model model) {
+        model.addAttribute("student", studentService.getStudentById(studentId));
+        currentCourseId = courseId;
         return "edit_student";
     }
 
@@ -48,18 +51,17 @@ public class StudentController {
         return "redirect:/students";
     }
 
-    @PostMapping("/students/{id}")
-    public String updateStudent(@PathVariable Long id,
+    @PostMapping("/students/{student_id}")
+    public String updateStudent(@PathVariable("student_id") Long studentId,
                                 @ModelAttribute("student") Student student,
-                                Model model) {
+                                Model model){
 
-        Student existingStudent = studentService.getStudentById(id);
-        existingStudent.setId(id);
+        Student existingStudent = studentService.getStudentById(studentId);
         existingStudent.setName(student.getName());
         existingStudent.setYearOfRegistration(student.getYearOfRegistration());
 
         studentService.updateStudent(existingStudent);
-        return "redirect:/students";
+        return "redirect:/courses/students/" + currentCourseId;
     }
 
 

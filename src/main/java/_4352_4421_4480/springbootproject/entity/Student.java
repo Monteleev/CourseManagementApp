@@ -58,13 +58,13 @@ public class Student {
         return yearOfRegistration;
     }
 
-    public int getYearOfStudies() {
+    public int getYearsOfStudies() {
         return Period.between(LocalDate.of(yearOfRegistration, 10, 1),
                 LocalDate.of(LocalDate.now().getYear(), 10, 1)).getYears();
     }
 
     public int getSemester() {
-        return getYearOfStudies()*2;
+        return getYearsOfStudies()*2;
     }
 
     public List<Course> getCourses() {
@@ -108,7 +108,7 @@ public class Student {
                 ", name= " + name  +
                 ", yearOfRegistration='" + yearOfRegistration + '\'' +
                 ", semester=" + semester +
-                ", courses=" + courses +
+//                ", courses=" + courses +
                 ", ratings=" + ratings +
                 '}';
     }

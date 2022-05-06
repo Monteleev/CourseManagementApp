@@ -8,13 +8,10 @@ import java.io.Serializable;
 public class RatingId implements Serializable {
 
     @Column(name = "course_id")
-    Long courseId;
+    private Long courseId;
 
     @Column(name = "student_id")
-    Long studentId;
-
-    // standard constructors, getters, and setters
-    // hashcode and equals implementation
+    private Long studentId;
 
     public RatingId() {
 
@@ -25,6 +22,11 @@ public class RatingId implements Serializable {
         this.studentId = studentId;
     }
 
+    public Long getCourseId() {
+        return courseId;
+    }
 
-
+    public Long getStudentId() {
+        return studentId;
+    }
 }

@@ -1,6 +1,7 @@
 package _4352_4421_4480.springbootproject.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "course_rating")
@@ -11,19 +12,19 @@ public class CourseRating {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EmbeddedId
-    RatingId id;
+    private RatingId id;
 
     @ManyToOne
     @MapsId("studentId")
     @JoinColumn(name = "student_id")
-    Student student;
+    private Student student;
 
     @ManyToOne
     @MapsId("courseId")
     @JoinColumn(name = "course_id")
-    Course course;
+    private Course course;
 
-    String rating;
+    private String rating;
 
     // standard constructors, getters, and setters
 
@@ -34,6 +35,10 @@ public class CourseRating {
         this.student = student;
         this.rating = rating;
         this.id = id;
+    }
+
+    public RatingId getId() {
+        return id;
     }
 
     public Student getStudent() {
@@ -50,6 +55,27 @@ public class CourseRating {
 
     public String getRating() {
         return rating;
+    }
+
+    public void deleteRating(RatingId ratingId) {
+        deleteRatingFrom(course.getRegisterStudentsGrades(), ratingId);
+        deleteRatingFrom(student.getRegisterStudentsGrades(), ratingId);
+    }
+
+    private void deleteRatingFrom(List<CourseRating> ratingList, RatingId ratingId) {
+        for (int i = 0; i < ratingList.size(); i++) {
+            if (ratingIdIsEqualToId(ratingId, ratingList, i)) {
+                ratingList.remove(i);
+            }
+        }
+    }
+
+    private boolean ratingIdIsEqualToId(RatingId ratingId, List<CourseRating> ratingList, int index) {
+        if (ratingId.getStudentId() == ratingList.get(index).getStudent().getId() &&
+                ratingId.getCourseId() == ratingList.get(index).getCourse().getId()){
+            return true;
+        }
+        return false;
     }
 
     @Override

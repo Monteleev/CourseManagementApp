@@ -38,7 +38,7 @@
     <table class="table table-bordered table-striped">
         <thead class = "table-dark">
         <tr>
-            <th>Course Students</th>
+            <th th:text="${courses.getName()}"></th>
         </tr>
         </thead>
 
@@ -49,9 +49,10 @@
                     <th>Id</th>
                     <th>Name</th>
                     <th>Year Of Registration</th>
+                    <th>Years Of Studies</th>
                     <th>Semester</th>
                     <th>Grade</th>
-                    <th>Enter new Grade</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
                 <tbody>
@@ -59,19 +60,26 @@
                         <td th:text=" ${s.id}"></td>
                         <td th:text=" ${s.name}"></td>
                         <td th:text=" ${s.yearOfRegistration}"></td>
+                        <td th:text=" ${s.yearsOfStudies}"></td>
                         <td th:text=" ${s.semester}"></td>
                         <td th:text=" ${s.getCourseGrade(c)}"></td>
                         <td align="center">
-                            <form th:action="@{/courses/students/{course_id}/edit/{student_id}(course_id=${c.id}, student_id=${s.id})}"
-                                  method="post">
+                            <form th:action="@{/courses/students/{course_id}/grade/{student_id}(course_id=${c.id}, student_id=${s.id})}"
+                                  method="post"style="display: inline">
                                 <input type="number"
                                        name = "newGrade"
                                        th:name="newGrade"
                                        placeholder="Enter new Grade"
                                        min = "0"
-                                       max = "10"/>
-                                <button type="submit" class = "btn btn-primary">Add</button>
+                                       max = "10"
+                                       required/>
+                                <button type="submit" class = "btn btn-primary"n>Add</button>
                             </form>
+                            <a th:href = "@{/students/{course_id}/edit/{id}(course_id=${c.id}, id=${s.id})}"
+                               class = "btn btn-primary">Update</a>
+                            <a th:href = "@{/courses/students/{course_id}/remove/{student_id}(course_id=${c.id}, student_id=${s.id})}"
+                               class = "btn btn-danger">Delete</a>
+
                         </td>
                     </tr>
 
@@ -81,10 +89,11 @@
     </table>
     <div class = "col-lg-6 col-md-6 col-sm-6 container justify-content-center">
         <form th:action="@{/courses/students/{id}(id=${courses.id})}" method="post">
-            <input type="text"
+            <input type="number"
                    name = "studentId"
                    th:name="studentId"
-                   placeholder="Enter Student ID"/>
+                   placeholder="Enter Student ID"
+                   required/>
             <button type="submit" class = "btn btn-primary">Add</button>
         </form>
     </div>
