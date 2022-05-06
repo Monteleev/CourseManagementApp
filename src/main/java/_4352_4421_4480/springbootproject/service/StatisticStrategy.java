@@ -22,7 +22,7 @@ public class StatisticStrategy {
         prepareDataSet();
         calculateStatistics();
         calculateMedian();
-        calculatePercantile();
+        calculatePercentile();
     }
 
     private void prepareDataSet(){
@@ -61,15 +61,15 @@ public class StatisticStrategy {
 
     }
 
-    public void calculatePercantile(){
-        double percantile25,percantile50,percantile75;
+    public void calculatePercentile(){
+        double percentile25,percentile50,percentile75;
 
-        percantile25 = stats.getPercentile(25);
-        percantile50 = stats.getPercentile(50);
-        percantile75 = stats.getPercentile(75);
+        percentile25 = stats.getPercentile(25);
+        percentile50 = stats.getPercentile(50);
+        percentile75 = stats.getPercentile(75);
 
-        results.put("25th Percantile", percantile25);
-        results.put("50th Percantile", percantile50);
-        results.put("75th Percantile", percantile75);
+        results.put("25th Percentile", percentile25);
+        results.put("50th Percentile", percentile50);
+        results.put("75th Percentile", percentile75);
     }
 }
