@@ -115,11 +115,7 @@ public class CourseController {
 
         courseService.updateCourse(course);
         studentService.updateStudent(student);
-/*----------------------------------------------------------------------------------------------------------------------
-        MeanStatisticStrategy meanStatisticStrategy = new MeanStatisticStrategy();
-        Map<String,Double> res = courseService.getResults(meanStatisticStrategy, courseService.getCourseById(courseId));
-        System.out.println(res);
-----------------------------------------------------------------------------------------------------------------------*/
+
         return "redirect:/courses/students/" + courseId;
     }
 
@@ -138,8 +134,8 @@ public class CourseController {
     @GetMapping("/courses/stats/{course_id}")
     public String showStatistics(@PathVariable("course_id") Long courseId, Model model) {
         Course course = courseService.getCourseById(courseId);
-        MeanStatisticStrategy meanStatisticStrategy = new MeanStatisticStrategy();
-        Map<String,Double> res = courseService.getResults(meanStatisticStrategy, course);
+        StatisticStrategy statisticStrategy = new StatisticStrategy();
+        Map<String,Double> res = courseService.getResults(statisticStrategy, course);
         model.addAttribute("result", res);
         model.addAttribute("course", course);
 
