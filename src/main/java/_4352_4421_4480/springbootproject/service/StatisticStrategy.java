@@ -14,17 +14,16 @@ public abstract class StatisticStrategy implements IStatisticStrategy {
 
     protected DescriptiveStatistics stats = new DescriptiveStatistics();
     private List<CourseRating> ratings = new ArrayList<>();
-    private Map<String,Double> results = new HashMap<>();
+    private Map<String, Double> results = new HashMap<>();
     double res;
 
     public StatisticStrategy(){}
 
-    public double calculateStatistic(Course course){
+    public void calculateStatistic(Course course){
         ratings = course.getRegisterStudentsGrades();
         prepareDataSet();
         doActualCalculation();
         saveResults(course.getName(), res);
-        return res;
     }
 
     private void prepareDataSet(){

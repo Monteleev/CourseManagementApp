@@ -50,7 +50,7 @@ public class CourseService {
     }
 
     public Map<String,Double> getResults(StatisticStrategy statisticStrategy,Course course){
-        double result = statisticStrategy.calculateStatistic(course);
+        statisticStrategy.calculateStatistic(course);
         return statisticStrategy.getResults();
     }
 }

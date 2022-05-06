@@ -106,7 +106,7 @@ public class CourseController {
         Student student = studentService.getStudentById(studentId);
 
         RatingId ratingId = new RatingId(courseId, studentId);
-        CourseRating courseRating = new CourseRating(ratingId, course, student, "5");
+        CourseRating courseRating = new CourseRating(ratingId, course, student, "-");
 
         courseRatingService.addNewCourseRating(courseRating);
         courseRatingService.registerGrade(courseRating);
@@ -123,7 +123,6 @@ public class CourseController {
         return "redirect:/courses/students/" + courseId;
     }
 
-
     @Transactional
     @GetMapping("/courses/students/{course_id}/remove/{student_id}")
     public String removeStudentFromCourse(@PathVariable("course_id") Long courseId,
@@ -134,6 +133,17 @@ public class CourseController {
         courseRatingService.deleteRating(ratingId);
         courseService.updateCourse(course);
         return "redirect:/courses/students/" + courseId;
+    }
+
+    @GetMapping("/courses/stats/{course_id}")
+    public String showStatistics(@PathVariable("course_id") Long courseId, Model model) {
+        Course course = courseService.getCourseById(courseId);
+        MeanStatisticStrategy meanStatisticStrategy = new MeanStatisticStrategy();
+        Map<String,Double> res = courseService.getResults(meanStatisticStrategy, course);
+        model.addAttribute("result", res);
+        System.out.println(res);
+
+        return "statistics";
     }
 
 }
