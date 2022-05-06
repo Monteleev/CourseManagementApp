@@ -23,7 +23,7 @@ public class Course {
     private List<Student> enrolledStudents;
 
     @OneToMany(mappedBy = "course")
-    List<CourseRating> ratings;
+    private List<CourseRating> ratings;
 
     public Course() {
     }
@@ -92,6 +92,10 @@ public class Course {
 
     public void enrollStudent(Student student){
         enrolledStudents.add(student);
+    }
+
+    public void deleteStudent(Student student) {
+        enrolledStudents.remove(student);
     }
 
     public void registerGrade(CourseRating courseRating){

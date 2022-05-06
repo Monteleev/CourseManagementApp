@@ -40,4 +40,12 @@ public class CourseRatingService {
         return courseRatingRepository.save(courseRating);
     }
 
+
+    public void deleteRating(RatingId ratingId) {
+        CourseRating courseRating = courseRatingRepository.findCourseRatingById(ratingId).get();
+        courseRating.deleteRating(ratingId);
+        courseRating.getCourse().deleteStudent(courseRating.getStudent());
+        courseRatingRepository.deleteCourseRatingById(ratingId);
+    }
+
 }

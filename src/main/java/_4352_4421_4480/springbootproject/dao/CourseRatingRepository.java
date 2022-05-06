@@ -9,4 +9,6 @@ import java.util.Optional;
 public interface CourseRatingRepository extends JpaRepository<CourseRating, Long>
 {
     Optional<CourseRating> findCourseRatingById(RatingId ratingId);
+
+    void deleteCourseRatingById(RatingId ratingId);
 }

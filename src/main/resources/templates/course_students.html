@@ -77,7 +77,7 @@
                             </form>
                             <a th:href = "@{/students/{course_id}/edit/{id}(course_id=${c.id}, id=${s.id})}"
                                class = "btn btn-primary">Update</a>
-                            <a th:href = "@{/students/{id}(id=${s.id})}"
+                            <a th:href = "@{/courses/students/{course_id}/remove/{student_id}(course_id=${c.id}, student_id=${s.id})}"
                                class = "btn btn-danger">Delete</a>
 
                         </td>
@@ -89,7 +89,7 @@
     </table>
     <div class = "col-lg-6 col-md-6 col-sm-6 container justify-content-center">
         <form th:action="@{/courses/students/{id}(id=${courses.id})}" method="post">
-            <input type="text"
+            <input type="number"
                    name = "studentId"
                    th:name="studentId"
                    placeholder="Enter Student ID"
