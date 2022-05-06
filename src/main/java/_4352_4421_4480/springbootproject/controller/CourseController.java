@@ -1,16 +1,17 @@
 package _4352_4421_4480.springbootproject.controller;
 
-import _4352_4421_4480.springbootproject.service.CourseRatingService;
-import _4352_4421_4480.springbootproject.service.CourseService;
+import _4352_4421_4480.springbootproject.service.*;
 import _4352_4421_4480.springbootproject.entity.Course;
 import _4352_4421_4480.springbootproject.entity.RatingId;
 import _4352_4421_4480.springbootproject.entity.CourseRating;
 import _4352_4421_4480.springbootproject.entity.Student;
-import _4352_4421_4480.springbootproject.service.StudentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
 
 
 //@RestController
@@ -105,7 +106,7 @@ public class CourseController {
         Student student = studentService.getStudentById(studentId);
 
         RatingId ratingId = new RatingId(courseId, studentId);
-        CourseRating courseRating = new CourseRating(ratingId, course, student, "-");
+        CourseRating courseRating = new CourseRating(ratingId, course, student, "5");
 
         courseRatingService.addNewCourseRating(courseRating);
         courseRatingService.registerGrade(courseRating);
@@ -114,8 +115,14 @@ public class CourseController {
 
         courseService.updateCourse(course);
         studentService.updateStudent(student);
+/*----------------------------------------------------------------------------------------------------------------------
+        MeanStatisticStrategy meanStatisticStrategy = new MeanStatisticStrategy();
+        Map<String,Double> res = courseService.getResults(meanStatisticStrategy, courseService.getCourseById(courseId));
+        System.out.println(res);
+----------------------------------------------------------------------------------------------------------------------*/
         return "redirect:/courses/students/" + courseId;
     }
+
 
     @Transactional
     @GetMapping("/courses/students/{course_id}/remove/{student_id}")
@@ -128,4 +135,5 @@ public class CourseController {
         courseService.updateCourse(course);
         return "redirect:/courses/students/" + courseId;
     }
+
 }
