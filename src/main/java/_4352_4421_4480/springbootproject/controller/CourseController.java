@@ -141,7 +141,7 @@ public class CourseController {
         MeanStatisticStrategy meanStatisticStrategy = new MeanStatisticStrategy();
         Map<String,Double> res = courseService.getResults(meanStatisticStrategy, course);
         model.addAttribute("result", res);
-        System.out.println(res);
+        model.addAttribute("course", course);
 
         return "statistics";
     }
