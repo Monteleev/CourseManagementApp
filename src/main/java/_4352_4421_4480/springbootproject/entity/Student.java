@@ -87,6 +87,8 @@ public class Student {
         ratings.add(courseRating);
     }
 
+    public void registerStudent(Course course){ courses.add(course);}
+
     public List<CourseRating> getRegisterStudentsGrades(){
         return ratings;
     }
