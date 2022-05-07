@@ -64,5 +64,10 @@ public class StudentController {
         return "redirect:/courses/students/" + currentCourseId;
     }
 
+    @ExceptionHandler(value = Exception.class)
+    public String exceptionHandler(Exception exception, Model model) {
+        model.addAttribute("error_msg", exception.getMessage());
 
+        return "default_exception";
+    }
 }
