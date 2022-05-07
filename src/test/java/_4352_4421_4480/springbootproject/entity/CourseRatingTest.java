@@ -1,10 +1,6 @@
 package _4352_4421_4480.springbootproject.entity;
 
 import org.junit.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 

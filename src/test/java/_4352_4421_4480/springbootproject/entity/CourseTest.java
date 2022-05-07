@@ -24,64 +24,51 @@ public class CourseTest {
 
     @Test
     public void nameTest() {
-        String name;
-        name = course.getName();
-        assertEquals(name, "SoftEng");
+
+        assertEquals(course.getName(), "SoftEng");
 
         course.setName("SoftDev");
-        name = course.getName();
-        assertEquals(name, "SoftDev");
+        assertEquals(course.getName(), "SoftDev");
     }
 
     @Test
     public void syllabusTest(){
 
-        String syllabus;
-        syllabus = course.getSyllabus();
-        assertEquals(syllabus,"courses syllabus");
+
+        assertEquals(course.getSyllabus(),"courses syllabus");
 
         course.setSyllabus("new syllabus");
-        syllabus = course.getSyllabus();
-        assertEquals(syllabus,"new syllabus");
+        assertEquals(course.getSyllabus(),"new syllabus");
 
     }
 
     @Test
     public void yearTest(){
 
-        int year;
-        year = course.getYear();
-        assertEquals(year,3);
+        assertEquals((int)course.getYear(),3);
 
         course.setYear(5);
-        year = course.getYear();
-        assertEquals(year,5);
+        assertEquals((int)course.getYear(),5);
 
     }
 
     @Test
     public void semesterTest(){
 
-        int semester;
-        semester = course.getSemester();
-        assertEquals(semester,6);
+        assertEquals((int)course.getSemester(),6);
 
         course.setSemester(2);
-        semester = course.getSemester();
-        assertEquals(semester,2);
+        assertEquals((int)course.getSemester(),2);
 
     }
 
     @Test
     public void idTest(){
 
-        Long id;
-        id = course.getId();
-        assertEquals((long)id,1L);
+        assertEquals((long)course.getId(),1L);
 
         course.setId(3L);
-        id = course.getId();
-        assertEquals((long)id,3L);
+        assertEquals((long)course.getId(),3L);
 
     }
 

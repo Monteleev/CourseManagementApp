@@ -3,8 +3,6 @@ package _4352_4421_4480.springbootproject.entity;
 import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
-
-
 import static org.junit.Assert.assertEquals;
 
 public class StudentTest {
@@ -16,52 +14,44 @@ public class StudentTest {
     @Test
     public void idTest(){
 
-        Long id = student.getId();
-        assertEquals((long)id,1L);
+        assertEquals((long)student.getId(),1L);
 
         student.setId(2L);
-        id = student.getId();
-        assertEquals((long)id,2L);
+        assertEquals((long)student.getId(),2L);
 
     }
 
     @Test
     public void nameTest(){
 
-        String name = student.getName();
-        assertEquals(name,"Giwrgos");
+        assertEquals(student.getName(),"Giwrgos");
 
         student.setName("Giorikas");
-        name = student.getName();
-        assertEquals(name,"Giorikas");
+        assertEquals(student.getName(),"Giorikas");
 
     }
 
     @Test
     public void yearOfRegistrationTest(){
 
-        int yearOfRegistration = student.getYearOfRegistration();
-        assertEquals(yearOfRegistration,2018);
+        assertEquals(student.getYearOfRegistration(),2018);
 
         student.setYearOfRegistration(2019);
-        yearOfRegistration = student.getYearOfRegistration();
-        assertEquals(yearOfRegistration,2019);
+        assertEquals(student.getYearOfRegistration(),2019);
 
     }
 
     @Test
     public void yearOfStudiesTest(){
 
-        int yearOfStudies = student.getYearsOfStudies();
-        assertEquals(yearOfStudies,4);
+        assertEquals(student.getYearsOfStudies(),4);
 
     }
 
     @Test
     public void semesterTest(){
 
-        int semester = student.getSemester();
-        assertEquals(semester,8);
+        assertEquals(student.getSemester(),8);
 
     }
 
