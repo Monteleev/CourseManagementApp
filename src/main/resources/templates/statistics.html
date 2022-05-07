@@ -10,46 +10,49 @@
         crossorigin="anonymous">
 </head>
 <body>
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-  <!-- Brand -->
-  <a class="navbar-brand" href="#">Course Management System</a>
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Course Management System</a>
 
-  <!-- Toggler/collapsibe Button -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <!-- Navbar links -->
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" th:href="@{/courses}">Course Management</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" th:href="@{/students}">Student Management</a>
-      </li>
-    </ul>
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/courses}">Course Management</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/students}">Student Management</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <br>
+
+  <div class="container">
+    <div class = "row">
+      <h2>Stats</h2>
+    </div>
+    <br>
+    <table class="table table-bordered table-striped">
+      <thead class = "table-dark">
+        <tr>
+          <th>Statistic</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="r: ${result}">
+          <td th:text = "${r.key}"></td>
+          <td th:text = "${r.value}"></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-</nav>
-<br>
-<div class="container">
-  <div class = "row">
-    <h2>
-      <tr>
-        <th th:text="${course.getName()}"></th>
-      </tr>
-    </h2>
-  </div>
-  <table class="table table-bordered table-striped">
-    <thead class = "table-dark">
-      <tr>
-        <th>Statistics</th>
-      </tr>
-    </thead>
-    <tbody>
-      <td th:text = "${result}"></td>
-    </tbody>
-  </table>
-</div>
 </body>
 </html>

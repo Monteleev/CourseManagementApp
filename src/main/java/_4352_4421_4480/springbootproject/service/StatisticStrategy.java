@@ -38,6 +38,7 @@ public class StatisticStrategy {
 
     public void calculateStatistics(){
         results.put("Min", stats.getMin());
+        System.out.println(stats.getMin());
         results.put("Max", stats.getMax());
         results.put("Mean", stats.getMean());
         results.put("Standard Deviation", stats.getStandardDeviation());
@@ -50,15 +51,23 @@ public class StatisticStrategy {
         double median,medianLow, medianHigh;
         Collections.sort(median_list);
         if(median_list.size() % 2 == 0){
+
             medianLow = median_list.get((median_list.size()/2) - 1);
-            medianHigh = median_list.get((median_list.size()/2) + 1);
+            medianHigh = median_list.get((median_list.size()/2));
+            median = (medianLow + medianHigh)/2;
+
+        }
+        else if(median_list.size() == 2){
+            medianLow = median_list.get(0);
+            medianHigh = median_list.get(1);
             median = (medianLow + medianHigh)/2;
         }
-        else{
-            median = median_list.get(median_list.size()/2);
-        }
-        results.put("Median", median);
+        else {
+            median = median_list.get(median_list.size() / 2);
 
+        }
+        double d = median_list.size();
+        results.put("Median", median);
     }
 
     public void calculatePercentile(){
