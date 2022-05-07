@@ -24,64 +24,64 @@ public class CourseTest {
 
     @Test
     public void nameTest() {
-        String expectedName;
-        expectedName = course.getName();
-        assertEquals(expectedName, "SoftEng");
+        String name;
+        name = course.getName();
+        assertEquals(name, "SoftEng");
 
         course.setName("SoftDev");
-        expectedName = course.getName();
-        assertEquals(expectedName, "SoftDev");
+        name = course.getName();
+        assertEquals(name, "SoftDev");
     }
 
     @Test
     public void syllabusTest(){
 
-        String expectedSyllabus;
-        expectedSyllabus = course.getSyllabus();
-        assertEquals(expectedSyllabus,"courses syllabus");
+        String syllabus;
+        syllabus = course.getSyllabus();
+        assertEquals(syllabus,"courses syllabus");
 
         course.setSyllabus("new syllabus");
-        expectedSyllabus = course.getSyllabus();
-        assertEquals(expectedSyllabus,"new syllabus");
+        syllabus = course.getSyllabus();
+        assertEquals(syllabus,"new syllabus");
 
     }
 
     @Test
     public void yearTest(){
 
-        int expectedYear;
-        expectedYear = course.getYear();
-        assertEquals(expectedYear,3);
+        int year;
+        year = course.getYear();
+        assertEquals(year,3);
 
         course.setYear(5);
-        expectedYear = course.getYear();
-        assertEquals(expectedYear,5);
+        year = course.getYear();
+        assertEquals(year,5);
 
     }
 
     @Test
     public void semesterTest(){
 
-        int expectedSemester;
-        expectedSemester = course.getSemester();
-        assertEquals(expectedSemester,6);
+        int semester;
+        semester = course.getSemester();
+        assertEquals(semester,6);
 
         course.setSemester(2);
-        expectedSemester = course.getSemester();
-        assertEquals(expectedSemester,2);
+        semester = course.getSemester();
+        assertEquals(semester,2);
 
     }
 
     @Test
     public void idTest(){
 
-        Long expectedId;
-        expectedId = course.getId();
-        assertEquals((long)expectedId,1L);
+        Long id;
+        id = course.getId();
+        assertEquals((long)id,1L);
 
         course.setId(3L);
-        expectedId = course.getId();
-        assertEquals((long)expectedId,3L);
+        id = course.getId();
+        assertEquals((long)id,3L);
 
     }
 
@@ -89,16 +89,16 @@ public class CourseTest {
     public void enrolledStudents(){
 
         int numOfEnrolledStudents;
-        List<Student> expectedEnrolledStudents = new ArrayList<>();
+        List<Student> enrolledStudents = new ArrayList<>();
 
-        expectedEnrolledStudents.add(student1);
-        expectedEnrolledStudents.add(student2);
+        enrolledStudents.add(student1);
+        enrolledStudents.add(student2);
 
         course.enrollStudent(student1);
         course.enrollStudent(student2);
 
-        List<Student> enrolledStudents = course.getEnrolledStudents();
-        assertEquals(expectedEnrolledStudents, enrolledStudents);
+        List<Student> expectedEnrolledStudents = course.getEnrolledStudents();
+        assertEquals(enrolledStudents, expectedEnrolledStudents);
 
         numOfEnrolledStudents = course.getNumberOfEnrolledStudents();
         assertEquals(numOfEnrolledStudents,2);
@@ -112,16 +112,16 @@ public class CourseTest {
     @Test
     public void registerGradeTest(){
 
-        List<CourseRating> expectedCourseRatings = new ArrayList<>();
+        List<CourseRating> courseRatings = new ArrayList<>();
 
-        expectedCourseRatings.add(courseRating1);
-        expectedCourseRatings.add(courseRating2);
+        courseRatings.add(courseRating1);
+        courseRatings.add(courseRating2);
 
         course.registerGrade(courseRating1);
         course.registerGrade(courseRating2);
 
-        List<CourseRating> courseRatings = course.getRegisterStudentsGrades();
-        assertEquals(courseRatings,expectedCourseRatings);
+        List<CourseRating> expectedCourseRatings = course.getRegisterStudentsGrades();
+        assertEquals(expectedCourseRatings,courseRatings);
 
     }
 }
