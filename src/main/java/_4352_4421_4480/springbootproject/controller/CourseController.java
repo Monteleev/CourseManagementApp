@@ -105,14 +105,13 @@ public class CourseController {
         Course course = courseService.getCourseById(courseId);
         Student student = studentService.getStudentById(studentId);
 
+        // Create an empty rating for the student enrolled
         RatingId ratingId = new RatingId(courseId, studentId);
         CourseRating courseRating = new CourseRating(ratingId, course, student, "-");
-
         courseRatingService.addNewCourseRating(courseRating);
         courseRatingService.registerGrade(courseRating);
 
         course.enrollStudent(student);
-
         courseService.updateCourse(course);
         studentService.updateStudent(student);
 
@@ -140,6 +139,13 @@ public class CourseController {
         model.addAttribute("course", course);
 
         return "statistics";
+    }
+
+    @ExceptionHandler(value = Exception.class)
+    public String exceptionHandler(Exception exception, Model model) {
+        model.addAttribute("error_msg", exception.getMessage());
+
+        return "exce_enroll_student";
     }
 
 }
