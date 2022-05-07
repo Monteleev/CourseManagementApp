@@ -38,7 +38,6 @@ public class StatisticStrategy {
 
     public void calculateStatistics(){
         results.put("Min", stats.getMin());
-        System.out.println(stats.getMin());
         results.put("Max", stats.getMax());
         results.put("Mean", stats.getMean());
         results.put("Standard Deviation", stats.getStandardDeviation());
@@ -66,7 +65,6 @@ public class StatisticStrategy {
             median = median_list.get(median_list.size() / 2);
 
         }
-        double d = median_list.size();
         results.put("Median", median);
     }
 

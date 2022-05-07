@@ -60,6 +60,7 @@ public class CourseRating {
     public void deleteRating(RatingId ratingId) {
         deleteRatingFrom(course.getRegisterStudentsGrades(), ratingId);
         deleteRatingFrom(student.getRegisterStudentsGrades(), ratingId);
+        setRating("-");
     }
 
     private void deleteRatingFrom(List<CourseRating> ratingList, RatingId ratingId) {
