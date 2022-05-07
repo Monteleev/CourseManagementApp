@@ -63,7 +63,9 @@
 
                         <div class = "form-group">
                             <label> Course Year</label>
-                            <input type="text"
+                            <input type="number"
+                                   min = "1"
+                                   max = "5"
                                    name = "year"
                                    th:field = "*{year}"
                                    class = "form-control"
@@ -74,7 +76,9 @@
 
                         <div class = "form-group">
                             <label> Course Semester</label>
-                            <input type="text"
+                            <input type="number"
+                                   min = "1"
+                                   max = "10"
                                    name = "semester"
                                    th:field = "*{semester}"
                                    class = "form-control"
