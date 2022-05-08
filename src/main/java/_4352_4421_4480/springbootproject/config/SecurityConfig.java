@@ -37,7 +37,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login*").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .exceptionHandling().accessDeniedPage("/error.html");
+                .exceptionHandling().accessDeniedPage("/error.html")
+                .and()
+                .logout()
+                .logoutUrl("/perform_logout");
 
     }
 
