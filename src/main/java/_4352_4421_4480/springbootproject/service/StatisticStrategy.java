@@ -49,6 +49,10 @@ public class StatisticStrategy {
     public void calculateMedian(){
         double median,medianLow, medianHigh;
         Collections.sort(median_list);
+
+        if (median_list.size() == 0)
+            throw new IndexOutOfBoundsException("No students enrolled in this course!");
+
         if(median_list.size() % 2 == 0){
 
             medianLow = median_list.get((median_list.size()/2) - 1);

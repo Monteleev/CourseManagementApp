@@ -144,7 +144,7 @@ public class CourseController {
     public String exceptionHandler(Exception exception, Model model) {
         model.addAttribute("error_msg", exception.getMessage());
 
-        return "exce_enroll_student";
+        return "default_exception";
     }
 
 }

@@ -26,7 +26,7 @@ public class CourseRatingService {
         Optional<CourseRating> courseRatingOptional = courseRatingRepository.findCourseRatingById(ratingId);
         if (courseRatingOptional.isPresent())
         {
-            throw new IllegalStateException("This student already has a grade assigned");
+            throw new IllegalStateException("This student is already enrolled to this course!");
         }
         courseRatingRepository.save(courseRating);
     }
