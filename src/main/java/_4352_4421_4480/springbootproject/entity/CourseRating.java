@@ -8,7 +8,7 @@ import java.util.List;
 public class CourseRating {
 
     //@EmbeddedId to mark the primary key,
-    // which is an instance of the CourseGrade class
+    // which is an instance of the RatingId class
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EmbeddedId
@@ -25,8 +25,6 @@ public class CourseRating {
     private Course course;
 
     private String rating;
-
-    // standard constructors, getters, and setters
 
     public CourseRating() {}
 
