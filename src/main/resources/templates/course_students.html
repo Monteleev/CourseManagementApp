@@ -51,11 +51,12 @@
                name = "studentId"
                th:name="studentId"
                placeholder="Enter An Existing ID"
-
                min="0"
                required/>
         <button type="submit" class = "btn btn-primary">Add</button>
     </form>
+    <a th:href = "@{/students/add}" class = "btn btn-primary mb-3" style="display: inline">New Student</a>
+
     <br>
     <br>
 
@@ -84,6 +85,7 @@
                             <form th:action="@{/courses/students/{course_id}/grade/{student_id}(course_id=${c.id}, student_id=${s.id})}"
                                   method="post"style="display: inline">
                                 <input type="number"
+                                       step="0.5"
                                        name = "newGrade"
                                        th:name="newGrade"
                                        placeholder="Enter new Grade"
