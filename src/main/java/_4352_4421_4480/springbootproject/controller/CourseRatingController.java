@@ -20,7 +20,7 @@ public class CourseRatingController {
     @PostMapping("/courses/students/{course_id}/grade/{student_id}")
     public String addNewGrade(@PathVariable("course_id") Long courseId,
                               @PathVariable("student_id") Long studentId,
-                        @RequestParam(value = "newGrade") Integer newGrade,
+                        @RequestParam(value = "newGrade") Double newGrade,
                         Model model){
         model.addAttribute("newGrade", newGrade);
 

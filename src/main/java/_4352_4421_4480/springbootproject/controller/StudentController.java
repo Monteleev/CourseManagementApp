@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class StudentController {
     private final StudentService studentService;
-    private Long currentCourseId;
 
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
@@ -36,12 +35,10 @@ public class StudentController {
         return "redirect:/students";
     }
 
-    @GetMapping("students/{course_id}/edit/{student_id}")
+    @GetMapping("/students/edit/{student_id}")
     public String editStudentForm(@PathVariable("student_id") Long studentId,
-                                  @PathVariable("course_id") Long courseId,
                                   Model model) {
         model.addAttribute("student", studentService.getStudentById(studentId));
-        currentCourseId = courseId;
         return "edit_student";
     }
 
@@ -53,15 +50,13 @@ public class StudentController {
 
     @PostMapping("/students/{student_id}")
     public String updateStudent(@PathVariable("student_id") Long studentId,
-                                @ModelAttribute("student") Student student,
-                                Model model){
-
+                                @ModelAttribute("student") Student student){
         Student existingStudent = studentService.getStudentById(studentId);
         existingStudent.setName(student.getName());
         existingStudent.setYearOfRegistration(student.getYearOfRegistration());
 
         studentService.updateStudent(existingStudent);
-        return "redirect:/courses/students/" + currentCourseId;
+        return "redirect:/students/";
     }
 
     @ExceptionHandler(value = Exception.class)

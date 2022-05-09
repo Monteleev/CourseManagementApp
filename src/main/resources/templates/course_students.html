@@ -31,16 +31,34 @@
                 <a class="nav-link" th:href="@{/students}">Student Management</a>
             </li>
         </ul>
+        <ul class="navbar-nav ml-auto">
+            <li style="margin-left: auto">
+                <a class="nav-link" th:href="@{/perform_logout}">Logout</a>
+            </li>
+        </ul>
     </div>
 </nav>
 <br>
+
 <div class="container">
-    <table class="table table-bordered table-striped">
-        <thead class = "table-dark">
-        <tr>
-            <th th:text="${courses.getName()}"></th>
-        </tr>
-        </thead>
+
+    <h1 th:text="${courses.getName()}"></h1>
+    <h3 style="display: inline">To add students to the course enter the student's ID     </h3>
+    <form th:action="@{/courses/students/{id}(id=${courses.id})}"
+          method="post"
+          style="display: inline">
+        <input type="number"
+               name = "studentId"
+               th:name="studentId"
+               placeholder="Enter An Existing ID"
+               min="0"
+               required/>
+        <button type="submit" class = "btn btn-primary">Add</button>
+    </form>
+    <a th:href = "@{/students/add}" class = "btn btn-primary mb-3" style="display: inline">New Student</a>
+
+    <br>
+    <br>
 
     <div class="row" th:each="c : ${courses}">
         <table class="table table-bordered table-striped">
@@ -67,6 +85,7 @@
                             <form th:action="@{/courses/students/{course_id}/grade/{student_id}(course_id=${c.id}, student_id=${s.id})}"
                                   method="post"style="display: inline">
                                 <input type="number"
+                                       step="0.5"
                                        name = "newGrade"
                                        th:name="newGrade"
                                        placeholder="Enter new Grade"
@@ -75,10 +94,8 @@
                                        required/>
                                 <button type="submit" class = "btn btn-primary"n>Add</button>
                             </form>
-                            <a th:href = "@{/students/{course_id}/edit/{id}(course_id=${c.id}, id=${s.id})}"
-                               class = "btn btn-primary">Update</a>
                             <a th:href = "@{/courses/students/{course_id}/remove/{student_id}(course_id=${c.id}, student_id=${s.id})}"
-                               class = "btn btn-danger">Delete</a>
+                               class = "btn btn-danger">Delete From Course</a>
 
                         </td>
                     </tr>
@@ -86,17 +103,6 @@
                 </tbody>
             </table>
         </div>
-    </table>
-    <div class = "col-lg-6 col-md-6 col-sm-6 container justify-content-center">
-        <form th:action="@{/courses/students/{id}(id=${courses.id})}" method="post">
-            <input type="number"
-                   name = "studentId"
-                   th:name="studentId"
-                   placeholder="Enter Student ID"
-                   required/>
-            <button type="submit" class = "btn btn-primary">Add</button>
-        </form>
-    </div>
 </div>
 </body>
 </html>
