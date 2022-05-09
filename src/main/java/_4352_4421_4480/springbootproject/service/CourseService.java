@@ -29,7 +29,7 @@ public class CourseService {
                 courseRepository.findById(course.getId());
         if(courseOptional.isPresent())
         {
-            throw new IllegalStateException("Id Taken. Try again!");
+            throw new IllegalStateException("Course ID Taken. Try again!");
         }
 
         courseRepository.save(course);

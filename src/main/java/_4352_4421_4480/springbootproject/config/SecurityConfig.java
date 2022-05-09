@@ -26,8 +26,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-//        // the boolean flags force the redirection even though
-//        // the user requested a specific secured resource.
         http.formLogin().defaultSuccessUrl("/courses", true);
         http
                 .csrf().disable()

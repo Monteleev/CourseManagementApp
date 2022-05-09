@@ -50,11 +50,11 @@
         <table class="table table-bordered table-striped">
             <thead class = "table-dark">
                 <tr>
-                    <th>Course ID</th>
-                    <th>Course Name</th>
-                    <th>Course Syllabus</th>
-                    <th>Course Year</th>
-                    <th>Course Semester</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Syllabus</th>
+                    <th>Year</th>
+                    <th>Semester</th>
                     <th>Enrolled Students</th>
                     <th> Stats </th>
                     <th> Actions </th>
@@ -69,14 +69,15 @@
                     </td>
                     <td th:text = "${course.year}"></td>
                     <td th:text = "${course.semester}"></td>
-                    <td><a th:href = "@{/courses/students/{id}(id=${course.id})}"
-                           class = "btn btn-primary">Show Students</a>
+                    <td th:text="${course.getNumberOfEnrolledStudents()}">
                     </td>
                     <td>
                         <a th:href = "@{/courses/stats/{course_id}(course_id = ${course.id})}"
                            class = "btn btn-primary">Stats</a>
                     </td>
                     <td>
+                        <a th:href = "@{/courses/students/{id}(id=${course.id})}"
+                           class = "btn btn-primary">Show Students</a>
 
                         <a th:href = "@{/courses/edit/{id}(id=${course.id})}"
                            class = "btn btn-primary">Update</a>

@@ -99,27 +99,6 @@
                     </form>
                 </div>
             </div>
-            <br>
-            <div class = "col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-                <h1 class = "text-center"> Course Students </h1>
-                <div class = "card-body">
-                    <table class="table table-bordered table-striped">
-                        <thead class = "table-dark">
-                        <tr>
-                            <th>Student ID</th>
-                            <th>Student Name</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="student: ${enrolledStudents}">
-                            <td th:text = "${student.id}"></td>
-                            <td th:text = "${student.name}"></td>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
         </div>
     </div>
 </body>
