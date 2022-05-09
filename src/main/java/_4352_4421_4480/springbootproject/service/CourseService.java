@@ -49,8 +49,4 @@ public class CourseService {
         return courseRepository.save(course);
     }
 
-    public Map<String,Double> getResults(StatisticStrategy statisticStrategy,Course course){
-        statisticStrategy.calculateCourseStatistics(course);
-        return statisticStrategy.getResults();
-    }
 }

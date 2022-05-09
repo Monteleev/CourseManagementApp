@@ -1,5 +1,6 @@
 package _4352_4421_4480.springbootproject.controller;
 
+import _4352_4421_4480.springbootproject.entity.*;
 import _4352_4421_4480.springbootproject.service.*;
 import _4352_4421_4480.springbootproject.entity.Course;
 import _4352_4421_4480.springbootproject.entity.RatingId;
@@ -133,7 +134,7 @@ public class CourseController {
     public String showStatistics(@PathVariable("course_id") Long courseId, Model model) {
         Course course = courseService.getCourseById(courseId);
         StatisticStrategy statisticStrategy = new StatisticStrategy();
-        Map<String,Double> res = courseService.getResults(statisticStrategy, course);
+        Map<String,Double> res = statisticStrategy.calculateCourseStatistics(course);
         model.addAttribute("result", res);
         model.addAttribute("course", course);
 

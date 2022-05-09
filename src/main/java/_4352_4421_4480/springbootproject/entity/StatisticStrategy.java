@@ -1,4 +1,4 @@
-package _4352_4421_4480.springbootproject.service;
+package _4352_4421_4480.springbootproject.entity;
 
 import _4352_4421_4480.springbootproject.entity.Course;
 import _4352_4421_4480.springbootproject.entity.CourseRating;
@@ -17,12 +17,13 @@ public class StatisticStrategy {
 
     public StatisticStrategy(){}
 
-    public void calculateCourseStatistics(Course course){
+    public Map<String,Double> calculateCourseStatistics(Course course){
         ratings = course.getRegisterStudentsGrades();
         prepareDataSet();
         calculateStatistics();
         calculateMedian();
         calculatePercentile();
+        return results;
     }
 
     private void prepareDataSet(){
@@ -30,10 +31,6 @@ public class StatisticStrategy {
             stats.addValue(Double.valueOf(grade.getRating()));
             median_list.add(Double.valueOf(grade.getRating()));
         }
-    }
-
-    public Map<String,Double> getResults(){
-        return results;
     }
 
     public void calculateStatistics(){
