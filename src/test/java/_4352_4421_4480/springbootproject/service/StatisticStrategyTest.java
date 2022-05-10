@@ -1,10 +1,12 @@
-package _4352_4421_4480.springbootproject.entity;
+package _4352_4421_4480.springbootproject.service;
 
-import _4352_4421_4480.springbootproject.service.CourseRatingService;
+import _4352_4421_4480.springbootproject.entity.Course;
+import _4352_4421_4480.springbootproject.entity.CourseRating;
+import _4352_4421_4480.springbootproject.entity.RatingId;
+import _4352_4421_4480.springbootproject.entity.Student;
+
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import static java.util.Map.entry;
