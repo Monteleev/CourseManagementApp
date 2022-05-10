@@ -33,10 +33,14 @@ public class StatisticStrategyTest {
 
     @Test
 
-    public void calculateCourseStatisticsTest()
-    {
+    public void calculateCourseStatisticsTest() {
 
+        course.registerGrade(courseRating1);
+        course.registerGrade(courseRating2);
+        course.registerGrade(courseRating3);
+        course.registerGrade(courseRating4);
         Map<String, Double> res = statisticStrategy.calculateCourseStatistics(course);
+        System.out.println(res);
 
         Map<String, Double> expectedRes = Map.ofEntries(entry("Mean",6.5),entry("Min",5.0),
                 entry("25th Percentile",5.25),entry("Max",8.0),entry("75th Percentile",7.75),
