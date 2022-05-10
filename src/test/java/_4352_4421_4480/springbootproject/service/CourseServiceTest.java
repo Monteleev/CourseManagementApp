@@ -124,7 +124,7 @@ public class CourseServiceTest {
                 entry("Skewness",0.0),entry("Standard Deviation",1.2909944487358056),entry("Median",6.5),
                 entry("Kurtosis",-1.1999999999999993),entry("50th Percentile",6.5),entry("Variance",1.6666666666666667));
 
-        Map<String, Double> res = courseService.showCourseStatistics(course4);
+        Map<String, Double> res = courseService.calculateCourseStatistics(course4);
         assertEquals(res,expectedRes);
 
     }

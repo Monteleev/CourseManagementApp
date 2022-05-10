@@ -130,7 +130,7 @@ public class CourseController {
     @GetMapping("/courses/stats/{course_id}")
     public String showStatistics(@PathVariable("course_id") Long courseId, Model model) {
         Course course = courseService.getCourseById(courseId);
-        Map<String,Double> res = courseService.showCourseStatistics(course);
+        Map<String,Double> res = courseService.calculateCourseStatistics(course);
         model.addAttribute("result", res);
         model.addAttribute("course", course);
 

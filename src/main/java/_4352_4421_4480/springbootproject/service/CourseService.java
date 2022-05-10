@@ -49,8 +49,8 @@ public class CourseService {
         return courseRepository.save(course);
     }
 
-    public Map<String,Double> showCourseStatistics(Course course){
-        StatisticStrategy statisticStrategy = new StatisticStrategy();
+    public Map<String,Double> calculateCourseStatistics(Course course){
+        IStatisticStrategy statisticStrategy = new StatisticStrategy();
         return statisticStrategy.calculateCourseStatistics(course);
     }
 

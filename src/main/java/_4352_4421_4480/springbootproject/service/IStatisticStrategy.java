@@ -6,5 +6,5 @@ import java.util.Map;
 
 public interface IStatisticStrategy {
 
-    public Map<String,Double> calculateCourseStatistics(Course course);
+    Map<String,Double> calculateCourseStatistics(Course course);
 }
