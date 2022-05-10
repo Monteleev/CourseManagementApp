@@ -18,10 +18,10 @@ public class CourseConfig {
         return args ->
         {
             Course SoftwareEng = new Course(
-                    1L,"SoftwareEng","llabddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddusSYY",4,8
+                    1L,"Software Engineering ","llabddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddusSYY",4,8
             );
             Course SoftwareDevel = new Course(
-                    2L,"SoftwareDevel","Syllabuuus",2,3
+                    2L,"Software Development II","Syllabuuus",3,5
             );
 
             repository.saveAll(

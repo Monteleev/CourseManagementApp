@@ -2,10 +2,6 @@ package _4352_4421_4480.springbootproject.controller;
 
 import _4352_4421_4480.springbootproject.entity.*;
 import _4352_4421_4480.springbootproject.service.*;
-import _4352_4421_4480.springbootproject.entity.Course;
-import _4352_4421_4480.springbootproject.entity.RatingId;
-import _4352_4421_4480.springbootproject.entity.CourseRating;
-import _4352_4421_4480.springbootproject.entity.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -14,14 +10,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 
-//@RestController
 @Controller
 public class CourseController {
     private final CourseService courseService;
     private StudentService studentService;
     private CourseRatingService courseRatingService;
 
-    public CourseController(CourseService courseService, StudentService studentService, CourseRatingService courseRatingService) {
+    public CourseController(CourseService courseService,
+                            StudentService studentService,
+                            CourseRatingService courseRatingService) {
         this.courseService = courseService;
         this.studentService = studentService;
         this.courseRatingService = courseRatingService;
