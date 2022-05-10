@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -46,6 +47,11 @@ public class CourseService {
     public Course updateCourse(Course course)
     {
         return courseRepository.save(course);
+    }
+
+    public Map<String,Double> showCourseStatistics(Course course){
+        StatisticStrategy statisticStrategy = new StatisticStrategy();
+        return statisticStrategy.calculateCourseStatistics(course);
     }
 
 }

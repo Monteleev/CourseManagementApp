@@ -5,6 +5,7 @@ import _4352_4421_4480.springbootproject.entity.*;
 import org.mockito.*;
 
 
+import static java.util.Map.entry;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -91,6 +92,41 @@ public class CourseServiceTest {
         assertEquals("courses syllabus", course.getSyllabus());
         assertEquals(1,course.getYear());
         assertEquals(2,course.getSemester());
+    }
+
+    @Test
+    public void showCourseStatisticsTest(){
+        Course course4 = new Course(4L,"Eng","courses syllabus",3,6);
+
+        Student student1 = new Student(1L, "Giwrgos", 2015);
+        Student student2 = new Student(2L, "Anna", 2010);
+        Student student3 = new Student(3L, "Petros", 2019);
+        Student student4 = new Student(4L, "Maria", 2018);
+
+        RatingId ratingId1 = new RatingId(course4.getId(), student1.getId());
+        RatingId ratingId2 = new RatingId(course4.getId(), student2.getId());
+        RatingId ratingId3 = new RatingId(course4.getId(), student3.getId());
+        RatingId ratingId4 = new RatingId(course4.getId(), student4.getId());
+
+
+        CourseRating courseRating1 = new CourseRating(ratingId1, course4, student1, "5");
+        CourseRating courseRating2 = new CourseRating(ratingId2, course4, student2, "6");
+        CourseRating courseRating3 = new CourseRating(ratingId3, course4, student3, "7");
+        CourseRating courseRating4 = new CourseRating(ratingId4, course4, student4, "8");
+
+        course4.registerGrade(courseRating1);
+        course4.registerGrade(courseRating2);
+        course4.registerGrade(courseRating3);
+        course4.registerGrade(courseRating4);
+
+        Map<String, Double> expectedRes = Map.ofEntries(entry("Mean",6.5),entry("Min",5.0),
+                entry("25th Percentile",5.25),entry("Max",8.0),entry("75th Percentile",7.75),
+                entry("Skewness",0.0),entry("Standard Deviation",1.2909944487358056),entry("Median",6.5),
+                entry("Kurtosis",-1.1999999999999993),entry("50th Percentile",6.5),entry("Variance",1.6666666666666667));
+
+        Map<String, Double> res = courseService.showCourseStatistics(course4);
+        assertEquals(res,expectedRes);
+
     }
 
 

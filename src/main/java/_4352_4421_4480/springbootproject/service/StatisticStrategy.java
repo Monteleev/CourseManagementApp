@@ -1,11 +1,13 @@
-package _4352_4421_4480.springbootproject.entity;
+package _4352_4421_4480.springbootproject.service;
 
+import _4352_4421_4480.springbootproject.entity.Course;
+import _4352_4421_4480.springbootproject.entity.CourseRating;
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 
 import java.util.*;
 
 
-public class StatisticStrategy {
+public class StatisticStrategy implements IStatisticStrategy {
 
     protected DescriptiveStatistics stats = new DescriptiveStatistics();
 

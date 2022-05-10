@@ -62,15 +62,9 @@ public class StudentTest {
         expectedEnrolledCourses.add(course1);
         expectedEnrolledCourses.add(course2);
 
-        //course1.enrollStudent(student); //shouldnt it work like this also?
         student.registerStudent(course1);
-        //System.out.println(course1.getEnrolledStudents());
-        //course2.enrollStudent(student);
         student.registerStudent(course2);
-        //System.out.println(course2.getEnrolledStudents());
         List<Course> enrolledCourses = student.getCourses();
-        System.out.println(enrolledCourses); //[] for some reason
-        System.out.println(expectedEnrolledCourses);
         assertEquals(expectedEnrolledCourses,enrolledCourses);
     }
 
