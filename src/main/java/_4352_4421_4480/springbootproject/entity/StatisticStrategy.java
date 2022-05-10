@@ -25,9 +25,13 @@ public class StatisticStrategy {
     }
 
     private void prepareDataSet(){
+        String rating;
         for (CourseRating grade : ratings){
-            stats.addValue(Double.valueOf(grade.getRating()));
-            median_list.add(Double.valueOf(grade.getRating()));
+            rating = grade.getRating();
+            if (!rating.equals("-")){
+                stats.addValue(Double.valueOf(rating));
+                median_list.add(Double.valueOf(rating));
+            }
         }
     }
 
@@ -46,7 +50,7 @@ public class StatisticStrategy {
         Collections.sort(median_list);
 
         if (median_list.size() == 0)
-            throw new IndexOutOfBoundsException("No students enrolled in this course!");
+            throw new IndexOutOfBoundsException("No students grades in this course!");
 
         if(median_list.size() % 2 == 0){
 
