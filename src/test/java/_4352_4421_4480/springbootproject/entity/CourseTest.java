@@ -17,8 +17,8 @@ public class CourseTest {
     Student student2 = new Student();
     RatingId ratingId1 = new RatingId(1L,1L);
     RatingId ratingId2 = new RatingId(1L,2L);
-    CourseRating courseRating1 = new CourseRating(ratingId1,course,student1,"5");
-    CourseRating courseRating2 = new CourseRating(ratingId2,course,student2,"9");
+    CourseRating courseRating1 = new CourseRating(ratingId1,course,student1,"5", "7");
+    CourseRating courseRating2 = new CourseRating(ratingId2,course,student2,"9", "9");
 
 
 

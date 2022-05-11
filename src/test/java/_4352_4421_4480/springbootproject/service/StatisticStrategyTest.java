@@ -26,10 +26,10 @@ public class StatisticStrategyTest {
     RatingId ratingId4 = new RatingId(course.getId(), student4.getId());
 
 
-    CourseRating courseRating1 = new CourseRating(ratingId1, course, student1, "5");
-    CourseRating courseRating2 = new CourseRating(ratingId2, course, student2, "6");
-    CourseRating courseRating3 = new CourseRating(ratingId3, course, student3, "7");
-    CourseRating courseRating4 = new CourseRating(ratingId4, course, student4, "8");
+    CourseRating courseRating1 = new CourseRating(ratingId1, course, student1, "5","5");
+    CourseRating courseRating2 = new CourseRating(ratingId2, course, student2, "6","6");
+    CourseRating courseRating3 = new CourseRating(ratingId3, course, student3, "7","7");
+    CourseRating courseRating4 = new CourseRating(ratingId4, course, student4, "8","8");
 
     StatisticStrategy statisticStrategy = new StatisticStrategy();
 

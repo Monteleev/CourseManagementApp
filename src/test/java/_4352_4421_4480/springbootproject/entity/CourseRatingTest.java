@@ -9,7 +9,7 @@ public class CourseRatingTest {
     Course course = new Course(1L,"SoftEng","courses syllabus",3,6);
     Student student = new Student(1L, "Giwrgos", 2018);
     RatingId ratingId = new RatingId(course.getId(), student.getId());
-    CourseRating courseRating = new CourseRating(ratingId, course, student, "5");
+    CourseRating courseRating = new CourseRating(ratingId, course, student, "5", "7");
 
     @Test
     public void gettersTest(){
@@ -27,10 +27,10 @@ public class CourseRatingTest {
     @Test
     public void ratingTest(){
 
-        assertEquals("5", courseRating.getRating());
+        assertEquals("6.0", courseRating.getRating());
 
-        courseRating.setRating("8");
-        assertEquals("8",courseRating.getRating());
+        courseRating.setRating("8.0");
+        assertEquals("8.0",courseRating.getRating());
 
         courseRating.deleteRating(ratingId);
         assertEquals("-",courseRating.getRating());

@@ -75,8 +75,8 @@ public class StudentTest {
     public void studentGradesTest(){
         RatingId ratingId1 = new RatingId(course1.getId(), student.getId());
         RatingId ratingId2 = new RatingId(course2.getId(), student.getId());
-        CourseRating courseRating1 = new CourseRating(ratingId1,course1,student,"10");
-        CourseRating courseRating2 = new CourseRating(ratingId2,course2,student,"6");
+        CourseRating courseRating1 = new CourseRating(ratingId1,course1,student,"10","9");
+        CourseRating courseRating2 = new CourseRating(ratingId2,course2,student,"6","8");
         student.registerGrade(courseRating1);
         student.registerGrade(courseRating2);
         List<CourseRating> courseRatings = student.getRegisterStudentsGrades();

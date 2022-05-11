@@ -109,10 +109,10 @@ public class CourseServiceTest {
         RatingId ratingId4 = new RatingId(course4.getId(), student4.getId());
 
 
-        CourseRating courseRating1 = new CourseRating(ratingId1, course4, student1, "5");
-        CourseRating courseRating2 = new CourseRating(ratingId2, course4, student2, "6");
-        CourseRating courseRating3 = new CourseRating(ratingId3, course4, student3, "7");
-        CourseRating courseRating4 = new CourseRating(ratingId4, course4, student4, "8");
+        CourseRating courseRating1 = new CourseRating(ratingId1, course4, student1, "5", "5");
+        CourseRating courseRating2 = new CourseRating(ratingId2, course4, student2, "6", "6");
+        CourseRating courseRating3 = new CourseRating(ratingId3, course4, student3, "7", "7");
+        CourseRating courseRating4 = new CourseRating(ratingId4, course4, student4, "8", "8");
 
         course4.registerGrade(courseRating1);
         course4.registerGrade(courseRating2);

@@ -28,7 +28,7 @@ public class CourseRatingServiceTest {
     Course course = new Course(1L,"SoftEng","courses syllabus",3,6);
     Student student = new Student(1L, "Dimitris", 2018);
     RatingId ratingId = new RatingId(course.getId(),student.getId());
-    CourseRating courseRating = new CourseRating(ratingId,course,student,"5");
+    CourseRating courseRating = new CourseRating(ratingId,course,student,"5", "5");
 
     @Test
     public void addNewCourseRatingTest(){
@@ -60,18 +60,18 @@ public class CourseRatingServiceTest {
         assertEquals(ratingId, courseRating1.getId());
         assertEquals(course, courseRating1.getCourse());
         assertEquals(student, courseRating1.getStudent());
-        assertEquals("5", courseRating1.getRating());
+        assertEquals("5.0", courseRating1.getRating());
     }
 
     @Test
     public void updateCourseTest(){
-        when(courseRatingRepository.save(courseRating)).thenReturn(new CourseRating(ratingId,course,student,"10"));
+        when(courseRatingRepository.save(courseRating)).thenReturn(new CourseRating(ratingId,course,student,"10", "9"));
         CourseRating courseRating1 = courseRatingService.updateCourseRating(courseRating);
 
         assertEquals(ratingId, courseRating1.getId());
         assertEquals(course, courseRating1.getCourse());
         assertEquals(student, courseRating1.getStudent());
-        assertEquals("10", courseRating1.getRating());
+        assertEquals("9.5", courseRating1.getRating());
     }
 
 }

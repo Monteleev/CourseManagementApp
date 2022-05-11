@@ -24,15 +24,35 @@ public class CourseRating {
     @JoinColumn(name = "course_id")
     private Course course;
 
+    private String projectRating;
+    private String examRating;
     private String rating;
 
     public CourseRating() {}
 
+    public CourseRating(RatingId id, Course course, Student student, String examRating, String projectRating){
+        this.course = course;
+        this.student = student;
+        this.examRating = examRating;
+        this.projectRating = projectRating;
+        this.id = id;
+        double calcRating = (Double.parseDouble(projectRating)+Double.parseDouble(examRating))/2;
+        if ((calcRating*10) % 10 == 0 || (calcRating*10) % 5 == 0){
+            this.rating = String.valueOf(calcRating);
+        }
+        else if ((calcRating*100) % 25 == 0) {
+            this.rating = String.valueOf(Math.floor(calcRating) + 0.5);
+        }
+        else {
+            this.rating = String.valueOf(Math.ceil(calcRating));
+        }
+    }
+
     public CourseRating(RatingId id, Course course, Student student, String rating){
         this.course = course;
         this.student = student;
-        this.rating = rating;
         this.id = id;
+        this.rating = rating;
     }
 
     public RatingId getId() {
