@@ -104,7 +104,7 @@ public class CourseController {
 
         // Create an empty rating for the student enrolled
         RatingId ratingId = new RatingId(courseId, studentId);
-        CourseRating courseRating = new CourseRating(ratingId, course, student, "-");
+        CourseRating courseRating = new CourseRating(ratingId, course, student, "-","-");
         courseRatingService.addNewCourseRating(courseRating);
         courseRatingService.registerGrade(courseRating);
 

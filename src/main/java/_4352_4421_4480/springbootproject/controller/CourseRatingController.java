@@ -20,13 +20,16 @@ public class CourseRatingController {
     @PostMapping("/courses/students/{course_id}/grade/{student_id}")
     public String addNewGrade(@PathVariable("course_id") Long courseId,
                               @PathVariable("student_id") Long studentId,
-                        @RequestParam(value = "newGrade") Double newGrade,
+                        @RequestParam(value = "newExamGrade") Double newExamGrade,
+                        @RequestParam(value = "newProjectGrade") Double newProjectGrade,
                         Model model){
-        model.addAttribute("newGrade", newGrade);
+        model.addAttribute("newExamGrade", newExamGrade);
+        model.addAttribute("newProjectGrade", newProjectGrade);
 
         CourseRating existingRating =
                 courseRatingService.getRatingById(new RatingId(courseId, studentId));
-        existingRating.setRating(String.valueOf(newGrade));
+        existingRating.setExamRating(String.valueOf(newExamGrade));
+        existingRating.setProjectRating(String.valueOf(newProjectGrade));
         courseRatingService.updateCourseRating(existingRating);
 
         return "redirect:/courses/students/" + courseId;

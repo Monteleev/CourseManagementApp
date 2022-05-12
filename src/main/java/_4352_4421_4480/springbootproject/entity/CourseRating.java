@@ -36,23 +36,7 @@ public class CourseRating {
         this.examRating = examRating;
         this.projectRating = projectRating;
         this.id = id;
-        double calcRating = (Double.parseDouble(projectRating)+Double.parseDouble(examRating))/2;
-        if ((calcRating*10) % 10 == 0 || (calcRating*10) % 5 == 0){
-            this.rating = String.valueOf(calcRating);
-        }
-        else if ((calcRating*100) % 25 == 0) {
-            this.rating = String.valueOf(Math.floor(calcRating) + 0.5);
-        }
-        else {
-            this.rating = String.valueOf(Math.ceil(calcRating));
-        }
-    }
-
-    public CourseRating(RatingId id, Course course, Student student, String rating){
-        this.course = course;
-        this.student = student;
-        this.id = id;
-        this.rating = rating;
+        calcRating(examRating,projectRating);
     }
 
     public RatingId getId() {
@@ -67,18 +51,43 @@ public class CourseRating {
         return course;
     }
 
-    public void setRating(String rating) {
-        this.rating = rating;
+    public void setProjectRating(String projectRating) {
+        this.projectRating = projectRating;
+        calcRating(examRating,projectRating);
+    }
+
+    public void setExamRating(String examRating) {
+        this.examRating = examRating;
+        calcRating(examRating,projectRating);
     }
 
     public String getRating() {
         return rating;
     }
 
+    public void calcRating(String examRating, String projectRating){
+        if(examRating == "-" || projectRating == "-"){
+            this.rating = "-";
+        }
+        else {
+
+            double calcRating = (Double.parseDouble(projectRating) + Double.parseDouble(examRating)) / 2;
+
+            if ((calcRating * 10) % 10 == 0 || (calcRating * 10) % 5 == 0) {
+                this.rating = String.valueOf(calcRating);
+            } else if ((calcRating * 100) % 25 == 0) {
+                this.rating = String.valueOf(Math.floor(calcRating) + 0.5);
+            } else {
+                this.rating = String.valueOf(Math.ceil(calcRating));
+            }
+        }
+    }
+
     public void deleteRating(RatingId ratingId) {
         deleteRatingFrom(course.getRegisterStudentsGrades(), ratingId);
         deleteRatingFrom(student.getRegisterStudentsGrades(), ratingId);
-        setRating("-");
+        setExamRating("-");
+        setProjectRating("-");
     }
 
     private void deleteRatingFrom(List<CourseRating> ratingList, RatingId ratingId) {

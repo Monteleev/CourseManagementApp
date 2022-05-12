@@ -29,8 +29,11 @@ public class CourseRatingTest {
 
         assertEquals("6.0", courseRating.getRating());
 
-        courseRating.setRating("8.0");
-        assertEquals("8.0",courseRating.getRating());
+        courseRating.setExamRating("8.0");
+        assertEquals("7.5",courseRating.getRating());
+
+        courseRating.setProjectRating("9.0");
+        assertEquals("8.5",courseRating.getRating());
 
         courseRating.deleteRating(ratingId);
         assertEquals("-",courseRating.getRating());
