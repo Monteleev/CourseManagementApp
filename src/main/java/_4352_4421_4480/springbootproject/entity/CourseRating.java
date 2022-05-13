@@ -98,6 +98,7 @@ public class CourseRating {
         deleteRatingFrom(student.getRegisterStudentsGrades(), ratingId);
         setExamRating("-");
         setProjectRating("-");
+        setRating("-");
     }
 
     private void deleteRatingFrom(List<CourseRating> ratingList, RatingId ratingId) {
