@@ -79,6 +79,11 @@ public class CourseRating {
         if(examRating == "-" || projectRating == "-"){
             this.rating = "-";
         }
+
+        else if (Double.parseDouble(examRating) < 4.0) {
+            this.rating = examRating;
+        }
+
         else {
 
             double calcRating = (Double.parseDouble(projectRating) + Double.parseDouble(examRating)) / 2;

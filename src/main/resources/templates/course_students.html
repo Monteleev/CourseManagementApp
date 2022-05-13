@@ -66,13 +66,11 @@
                 <tr>
                     <th>Id</th>
                     <th>Name</th>
-                    <th>Year Of Registration</th>
-                    <th>Years Of Studies</th>
-                    <th>Semester</th>
+                    <th>Year Of Studies</th>
                     <th>Exam Grade</th>
                     <th>Project Grade</th>
                     <th>Overall Grade</th>
-                    <th>Set Grades</th>
+                    <th>Enter Grades</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -80,9 +78,7 @@
                     <tr th:each= " s : ${c.enrolledStudents}">
                         <td th:text=" ${s.id}"></td>
                         <td th:text=" ${s.name}"></td>
-                        <td th:text=" ${s.yearOfRegistration}"></td>
                         <td th:text=" ${s.yearsOfStudies}"></td>
-                        <td th:text=" ${s.semester}"></td>
                         <td th:text=" ${s.getExamCourseGrade(c)}"></td>
                         <td th:text=" ${s.getProjectCourseGrade(c)}"></td>
                         <td th:text=" ${s.getCourseGrade(c)}"></td>
@@ -97,7 +93,7 @@
                                        step="0.5"
                                        name = "newExamGrade"
                                        th:name="newExamGrade"
-                                       placeholder="Enter new Exam Grade"
+                                       placeholder="Exam Grade"
                                        required/>
 
                                 <input type="number"
@@ -106,7 +102,7 @@
                                        step="0.5"
                                        name = "newProjectGrade"
                                        th:name="newProjectGrade"
-                                       placeholder="Enter new Exam Grade"
+                                       placeholder="Project Grade"
                                        required/>
                                 <button type="submit" class = "btn btn-primary"n>Add</button>
                             </form>
