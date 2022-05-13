@@ -14,7 +14,7 @@ import java.util.List;
 @Table(name = "student")
 public class Student {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
 
     @Column(name = "name")
@@ -93,11 +93,32 @@ public class Student {
         return ratings;
     }
 
+
+    public String getExamCourseGrade(Course course) {
+        Long courseId = course.getId();
+        for (CourseRating courseRate : ratings) {
+            if (courseRate.getCourse().getId().equals(courseId)) {
+                return courseRate.getExamRating();
+            }
+        }
+        return "";
+    }
+
     public String getCourseGrade(Course course) {
         Long courseId = course.getId();
         for (CourseRating courseRate : ratings) {
             if (courseRate.getCourse().getId().equals(courseId)) {
                 return courseRate.getRating();
+            }
+        }
+        return "";
+    }
+
+    public String getProjectCourseGrade(Course course) {
+        Long courseId = course.getId();
+        for (CourseRating courseRate : ratings) {
+            if (courseRate.getCourse().getId().equals(courseId)) {
+                return courseRate.getProjectRating();
             }
         }
         return "";

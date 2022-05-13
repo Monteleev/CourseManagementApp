@@ -69,7 +69,10 @@
                     <th>Year Of Registration</th>
                     <th>Years Of Studies</th>
                     <th>Semester</th>
-                    <th>Grade</th>
+                    <th>Exam Grade</th>
+                    <th>Project Grade</th>
+                    <th>Overall Grade</th>
+                    <th>Set Grades</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -80,22 +83,39 @@
                         <td th:text=" ${s.yearOfRegistration}"></td>
                         <td th:text=" ${s.yearsOfStudies}"></td>
                         <td th:text=" ${s.semester}"></td>
+                        <td th:text=" ${s.getExamCourseGrade(c)}"></td>
+                        <td th:text=" ${s.getProjectCourseGrade(c)}"></td>
                         <td th:text=" ${s.getCourseGrade(c)}"></td>
+
+
                         <td align="center">
                             <form th:action="@{/courses/students/{course_id}/grade/{student_id}(course_id=${c.id}, student_id=${s.id})}"
                                   method="post"style="display: inline">
                                 <input type="number"
-                                       step="0.5"
-                                       name = "newGrade"
-                                       th:name="newGrade"
-                                       placeholder="Enter new Grade"
-                                       min = "0"
+                                       min ="0"
                                        max = "10"
+                                       step="0.5"
+                                       name = "newExamGrade"
+                                       th:name="newExamGrade"
+                                       placeholder="Enter new Exam Grade"
+                                       required/>
+
+                                <input type="number"
+                                       min ="0"
+                                       max = "10"
+                                       step="0.5"
+                                       name = "newProjectGrade"
+                                       th:name="newProjectGrade"
+                                       placeholder="Enter new Exam Grade"
                                        required/>
                                 <button type="submit" class = "btn btn-primary"n>Add</button>
                             </form>
+
+                        </td>
+
+                        <td>
                             <a th:href = "@{/courses/students/{course_id}/remove/{student_id}(course_id=${c.id}, student_id=${s.id})}"
-                               class = "btn btn-danger">Delete From Course</a>
+                                   class = "btn btn-danger">Delete From Course</a>
 
                         </td>
                     </tr>

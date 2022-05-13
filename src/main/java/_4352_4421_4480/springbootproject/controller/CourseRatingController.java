@@ -30,6 +30,7 @@ public class CourseRatingController {
                 courseRatingService.getRatingById(new RatingId(courseId, studentId));
         existingRating.setExamRating(String.valueOf(newExamGrade));
         existingRating.setProjectRating(String.valueOf(newProjectGrade));
+        existingRating.calcRating(String.valueOf(newExamGrade),String.valueOf(newProjectGrade));
         courseRatingService.updateCourseRating(existingRating);
 
         return "redirect:/courses/students/" + courseId;

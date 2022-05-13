@@ -53,16 +53,26 @@ public class CourseRating {
 
     public void setProjectRating(String projectRating) {
         this.projectRating = projectRating;
-        calcRating(examRating,projectRating);
     }
 
     public void setExamRating(String examRating) {
         this.examRating = examRating;
-        calcRating(examRating,projectRating);
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 
     public String getRating() {
         return rating;
+    }
+
+    public String getProjectRating() {
+        return projectRating;
+    }
+
+    public String getExamRating() {
+        return examRating;
     }
 
     public void calcRating(String examRating, String projectRating){
