@@ -25,7 +25,7 @@ public class CourseRatingServiceTest {
     @Mock
     CourseRatingRepository courseRatingRepository;
 
-    Course course = new Course(1L,"SoftEng","courses syllabus",3,6);
+    Course course = new Course(1L,"SoftEng","courses syllabus","course description",3,6);
     Student student = new Student(1L, "Dimitris", 2018);
     RatingId ratingId = new RatingId(course.getId(),student.getId());
     CourseRating courseRating = new CourseRating(ratingId,course,student,"5", "5");

@@ -61,7 +61,7 @@ public class CourseControllerTest {
     @Test
     void testSaveCourseReturnsPage() throws Exception {
 
-        Course course = new Course(3L, "Algebra","Syllabus",1,1);
+        Course course = new Course(3L, "Algebra","Syllabus","course description",1,1);
 
         MultiValueMap<String, String> multiValueMap = new LinkedMultiValueMap<>();
         multiValueMap.add("id", Long.toString(course.getId()));

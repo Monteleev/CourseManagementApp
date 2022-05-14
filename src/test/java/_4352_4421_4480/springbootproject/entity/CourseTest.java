@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 @SpringBootTest
 public class CourseTest {
 
-    Course course = new Course(1L,"SoftEng","courses syllabus",3,6);
+    Course course = new Course(1L,"SoftEng","courses syllabus","course description",3,6);
     Student student1 = new Student();
     Student student2 = new Student();
     RatingId ratingId1 = new RatingId(1L,1L);

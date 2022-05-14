@@ -23,9 +23,9 @@ public class CourseServiceTest {
 
 
     List<Course> courses = new ArrayList<>();
-    Course course1 = new Course(1L,"SoftEng","courses syllabus",3,6);
-    Course course2 = new Course(2L,"SoftDev","courses syllabus",3,6);
-    Course course3 = new Course(3L,"Math","courses syllabus",3,6);
+    Course course1 = new Course(1L,"SoftEng","courses syllabus","course description",3,6);
+    Course course2 = new Course(2L,"SoftDev","courses syllabus","course description",3,6);
+    Course course3 = new Course(3L,"Math","courses syllabus","course description",3,6);
 
 
 
@@ -52,7 +52,7 @@ public class CourseServiceTest {
     @Test
     public void addCourseTest(){
 
-        Course course4 = new Course(4L,"DB","courses syllabus",3,6);
+        Course course4 = new Course(4L,"DB","courses syllabus","course description",3,6);
         courseService.addNewCourse(course4);
 
         verify(courseRepository,times(1)).save(course4);
@@ -84,7 +84,7 @@ public class CourseServiceTest {
 
     @Test
     public void updateCourseTest(){
-        when(courseRepository.save(course1)).thenReturn(new Course(1L,"Java","courses syllabus",1,2));
+        when(courseRepository.save(course1)).thenReturn(new Course(1L,"Java","courses syllabus","course description",1,2));
         Course course = courseService.updateCourse(course1);
 
         assertEquals(1L, course.getId());
@@ -96,7 +96,7 @@ public class CourseServiceTest {
 
     @Test
     public void showCourseStatisticsTest(){
-        Course course4 = new Course(4L,"Eng","courses syllabus",3,6);
+        Course course4 = new Course(4L,"Eng","courses syllabus","course description",3,6);
 
         Student student1 = new Student(1L, "Giwrgos", 2015);
         Student student2 = new Student(2L, "Anna", 2010);

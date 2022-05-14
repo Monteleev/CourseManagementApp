@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 
 public class StatisticStrategyTest {
 
-    Course course = new Course(1L,"SoftEng","courses syllabus",3,6);
+    Course course = new Course(1L,"SoftEng","courses syllabus","course description",3,6);
     Student student1 = new Student(1L, "Giwrgos", 2015);
     Student student2 = new Student(2L, "Anna", 2010);
     Student student3 = new Student(3L, "Petros", 2019);

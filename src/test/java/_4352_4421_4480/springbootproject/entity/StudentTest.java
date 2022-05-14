@@ -8,8 +8,8 @@ import static org.junit.Assert.assertEquals;
 public class StudentTest {
 
     Student student = new Student(1L, "Giwrgos", 2018);
-    Course course1 = new Course(1L,"SoftEng","softeng syllabus",3,6);
-    Course course2 = new Course(2L,"SoftDev","softdev syllabus",3,6);
+    Course course1 = new Course(1L,"SoftEng","softeng syllabus","course description",3,6);
+    Course course2 = new Course(2L,"SoftDev","softdev syllabus","course description",3,6);
 
     @Test
     public void idTest(){
