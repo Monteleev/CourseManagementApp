@@ -53,6 +53,7 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Syllabus</th>
+                    <th>Description</th>
                     <th>Year</th>
                     <th>Semester</th>
                     <th>Enrolled Students</th>
@@ -65,7 +66,11 @@
                     <td th:text = "${course.id}"></td>
                     <td th:text = "${course.name}"></td>
                     <td><a th:href = "@{/courses/syllabus/{id}(id=${course.id})}"
-                        class = "btn btn-primary">Show Syllabus</a>
+                        class = "btn btn-primary">Show</a>
+                    </td>
+
+                    <td><a th:href = "@{/courses/description/{id}(id=${course.id})}"
+                           class = "btn btn-primary">Show</a>
                     </td>
                     <td th:text = "${course.year}"></td>
                     <td th:text = "${course.semester}"></td>

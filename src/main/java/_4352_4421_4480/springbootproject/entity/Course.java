@@ -13,6 +13,7 @@ public class Course {
 
     private String name;
     private String syllabus;
+    private String description;
     private Integer year;
     private Integer semester;
 
@@ -28,10 +29,11 @@ public class Course {
     public Course() {
     }
 
-    public Course(Long id, String name, String syllabus, Integer year, Integer semester) {
+    public Course(Long id, String name, String syllabus,String description, Integer year, Integer semester) {
         this.id = id;
         this.name = name;
         this.syllabus = syllabus;
+        this.description = description;
         this.year = year;
         this.semester = semester;
         ratings = new ArrayList<>();
@@ -61,6 +63,10 @@ public class Course {
     public Integer getSemester() {
         return semester;
     }
+
+    public String getDescription() {return description;}
+
+    public void setDescription(String description) {this.description = description;}
 
     public void setSemester(Integer semester) {
         this.semester = semester;

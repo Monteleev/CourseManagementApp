@@ -38,6 +38,13 @@ public class CourseController {
         return "course_syllabus";
     }
 
+    @GetMapping("/courses/description/{id}")
+    public String listCoursesDescription(@PathVariable Long id,Model model)
+    {
+        model.addAttribute("courses",courseService.getCourseById(id));
+        return "course_description";
+    }
+
     @GetMapping("/courses/students/{id}")
     public String listStudents(@PathVariable Long id,Model model)
     {
@@ -83,6 +90,7 @@ public class CourseController {
         existingCourse.setId(id);
         existingCourse.setName(course.getName());
         existingCourse.setSyllabus(course.getSyllabus());
+        existingCourse.setDescription(course.getDescription());
         existingCourse.setYear(course.getYear());
         existingCourse.setSemester(course.getSemester());
 

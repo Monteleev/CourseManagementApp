@@ -18,10 +18,10 @@ public class CourseConfig {
         return args ->
         {
             Course SoftwareEng = new Course(
-                    1L,"Software Engineering ","This is the syllabus for the Software Engineering Course",4,8
+                    1L,"Software Engineering ","This is the syllabus for the Software Engineering Course","This is the description for the Software Engineering Course",4,8
             );
             Course SoftwareDevel = new Course(
-                    2L,"Software Development II","This is the syllabus for the Software Development II Course",3,5
+                    2L,"Software Development II","This is the syllabus for the Software Development II Course","This is the description for the Software Development II Course",3,5
             );
 
             repository.saveAll(
