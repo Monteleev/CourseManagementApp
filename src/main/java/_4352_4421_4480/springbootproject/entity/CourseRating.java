@@ -88,14 +88,12 @@ public class CourseRating {
 
             double calcRating = (Double.parseDouble(projectRating) + Double.parseDouble(examRating)) / 2;
 
-            if ((calcRating * 10) % 10 == 0 || (calcRating * 10) % 5 == 0) {
-                this.rating = String.valueOf(calcRating);
-            } else if ((calcRating * 100) % 25 == 0) {
-                this.rating = String.valueOf(Math.floor(calcRating) + 0.5);
-            } else {
-                this.rating = String.valueOf(Math.ceil(calcRating));
-            }
+            this.rating = String.valueOf(roundToHalf(calcRating));
         }
+    }
+
+    private static double roundToHalf(double d) {
+        return Math.round(d * 2) / 2.0;
     }
 
     public void deleteRating(RatingId ratingId) {
