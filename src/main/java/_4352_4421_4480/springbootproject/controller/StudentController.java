@@ -52,6 +52,7 @@ public class StudentController {
         Student existingStudent = studentService.getStudentById(studentId);
         existingStudent.setName(student.getName());
         existingStudent.setYearOfRegistration(student.getYearOfRegistration());
+        existingStudent.setSemester(student.getSemester());
 
         studentService.updateStudent(existingStudent);
         return "redirect:/students/";

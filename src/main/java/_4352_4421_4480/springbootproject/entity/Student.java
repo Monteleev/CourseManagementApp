@@ -14,7 +14,7 @@ import java.util.List;
 @Table(name = "student")
 public class Student {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "name")
@@ -38,10 +38,11 @@ public class Student {
 
     }
 
-    public Student(Long id, String name, int yearOfRegistration) {
+    public Student(Long id, String name, int yearOfRegistration, int semester) {
         this.name = name;
         this.id = id;
         this.yearOfRegistration = yearOfRegistration;
+        this.semester = semester;
         ratings = new ArrayList<>();
         courses = new ArrayList<>();
     }
@@ -64,7 +65,11 @@ public class Student {
     }
 
     public int getSemester() {
-        return getYearsOfStudies()*2;
+        return semester;
+    }
+
+    public void setSemester(int semester) {
+        this.semester = semester;
     }
 
     public List<Course> getCourses() {

@@ -17,9 +17,9 @@ import java.util.*;
 public class StudentServiceTest {
 
     List<Student> students = new ArrayList<>();
-    Student student1 = new Student(1L, "Dimitris", 2018);
-    Student student2 = new Student(2L, "Grigoris", 2018);
-    Student student3 = new Student(3L, "Spyros", 2018);
+    Student student1 = new Student(1L, "Dimitris", 2018, 1);
+    Student student2 = new Student(2L, "Grigoris", 2018, 2);
+    Student student3 = new Student(3L, "Spyros", 2018, 3);
 
     @InjectMocks
     StudentService studentService;
@@ -43,7 +43,7 @@ public class StudentServiceTest {
     @Test
     public void addStudentTest(){
 
-        Student student4 = new Student(4L, "Giorgos", 2011);
+        Student student4 = new Student(4L, "Giorgos", 2011, 1);
         studentService.addNewStudent(student4);
 
         verify(studentRepository,times(1)).save(student4);
@@ -72,7 +72,7 @@ public class StudentServiceTest {
 
     @Test
     public void updateCourseTest(){
-        when(studentRepository.save(student1)).thenReturn(new Student(1L, "Dimitrios", 2017));
+        when(studentRepository.save(student1)).thenReturn(new Student(1L, "Dimitrios", 2017, 1));
         Student student = studentService.updateStudent(student1);
 
 

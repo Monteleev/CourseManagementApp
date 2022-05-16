@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 public class RatingIdTest {
 
     Course course = new Course(1L,"SoftEng","courses syllabus","course description",3,6);
-    Student student = new Student(1L, "Giwrgos", 2018);
+    Student student = new Student(1L, "Giwrgos", 2018, 1);
     RatingId ratingId = new RatingId(course.getId(), student.getId());
 
     @Test

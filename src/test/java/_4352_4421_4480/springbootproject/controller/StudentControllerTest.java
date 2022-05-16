@@ -59,7 +59,7 @@ public class StudentControllerTest {
     @Test
     void testSaveStudentReturnsPage() throws Exception {
 
-        Student student = new Student(5L, "Andrew", 2019);
+        Student student = new Student(5L, "Andrew", 2019, 1);
 
         MultiValueMap<String, String> multiValueMap = new LinkedMultiValueMap<>();
         multiValueMap.add("id", Long.toString(student.getId()));

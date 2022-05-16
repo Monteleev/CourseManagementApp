@@ -15,10 +15,10 @@ import static org.junit.Assert.assertEquals;
 public class StatisticStrategyTest {
 
     Course course = new Course(1L,"SoftEng","courses syllabus","course description",3,6);
-    Student student1 = new Student(1L, "Giwrgos", 2015);
-    Student student2 = new Student(2L, "Anna", 2010);
-    Student student3 = new Student(3L, "Petros", 2019);
-    Student student4 = new Student(4L, "Maria", 2018);
+    Student student1 = new Student(1L, "Giwrgos", 2015, 1);
+    Student student2 = new Student(2L, "Anna", 2010, 2);
+    Student student3 = new Student(3L, "Petros", 2019,3);
+    Student student4 = new Student(4L, "Maria", 2018,4);
 
     RatingId ratingId1 = new RatingId(course.getId(), student1.getId());
     RatingId ratingId2 = new RatingId(course.getId(), student2.getId());

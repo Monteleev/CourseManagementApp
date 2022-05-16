@@ -26,6 +26,6 @@ public class StudentRepositoryTest {
         Optional<Student> optionalStudent = studentRepository.findById(1L);
         Student storedStudent = optionalStudent.get();
         Assertions.assertNotNull(storedStudent);
-        Assertions.assertEquals("Baggelis", storedStudent.getName());
+        Assertions.assertEquals("Vassiliadis Panagiotis", storedStudent.getName());
     }
 }

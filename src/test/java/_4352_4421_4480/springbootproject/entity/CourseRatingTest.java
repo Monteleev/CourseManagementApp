@@ -7,14 +7,14 @@ import static org.junit.Assert.assertEquals;
 public class CourseRatingTest {
 
     Course course = new Course(1L,"SoftEng","courses syllabus","course description",3,6);
-    Student student = new Student(1L, "Giwrgos", 2018);
+    Student student = new Student(1L, "Giwrgos", 2018, 1);
     RatingId ratingId = new RatingId(course.getId(), student.getId());
     CourseRating courseRating = new CourseRating(ratingId, course, student, "5", "7");
 
     @Test
     public void gettersTest(){
 
-        Student tempStudent = new Student(1L, "Giwrgos", 2018);
+        Student tempStudent = new Student(1L, "Giwrgos", 2018, 1);
         Course tempCourse = new Course(1L,"SoftEng","courses syllabus","course description",3,6);
         RatingId tempRatingId = new RatingId(course.getId(), student.getId());
 

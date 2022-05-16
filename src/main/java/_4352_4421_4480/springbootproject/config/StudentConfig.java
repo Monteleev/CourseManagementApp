@@ -16,9 +16,12 @@ public class StudentConfig {
     {
         return args ->
         {
-            Student student1 = new Student(1L, "Baggelis", 2018);
-            Student student2 = new Student(2L, "Giannis", 2019);
-            repository.saveAll(List.of(student1, student2));
+            Student student1 = new Student(4352L, "Dimitropoulos Dimitrios", 2018, 8);
+            Student student2 = new Student(4421L, "Messinis Spiridon", 2018, 8);
+            Student student3 = new Student(4480L, "Poulos Grigorios", 2018, 8);
+            Student student4 = new Student(2L, "Zarras Apostolos", 2004, 10);
+            Student student5 = new Student(1L, "Vassiliadis Panagiotis", 2002, 14);
+            repository.saveAll(List.of(student1, student2, student3, student4, student5));
         };
     }
 }

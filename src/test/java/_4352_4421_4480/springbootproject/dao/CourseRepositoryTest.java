@@ -23,9 +23,9 @@ public class CourseRepositoryTest {
 
     @Test
     void testFindByIdReturnsCourse() {
-        Optional<Course> optionalCourse = courseRepository.findById(1L);
+        Optional<Course> optionalCourse = courseRepository.findById(2L);
         Course storedCourse = optionalCourse.get();
         Assertions.assertNotNull(storedCourse);
-        Assertions.assertEquals(4, storedCourse.getYear());
+        Assertions.assertEquals(3, storedCourse.getYear());
     }
 }
